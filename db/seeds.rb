@@ -27,7 +27,6 @@ Student.create(name: 'Michael', active: true, group_id: 1)
 Student.create(name: 'Elisha', active: true, group_id: 1)
 Student.create(name: 'Pinda', active: true, group_id: 1)
 
-
 Attendance.create(date: '01/01/2018', att_status: 1, student_id: 1)
 Attendance.create(date: '01/01/2018', att_status: 2, student_id: 2)
 Attendance.create(date: '01/01/2018', att_status: 3, student_id: 3)
