@@ -16,3 +16,9 @@ h1 {
 .group-card-info {
   background: #fafafa;
 }
+
+.new_group_button {
+  display: block;
+  margin: 20px auto;
+  width: 250px;
+}
