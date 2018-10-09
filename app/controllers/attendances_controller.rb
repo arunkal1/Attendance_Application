@@ -6,6 +6,7 @@ class AttendancesController < ApplicationController
   end
 
   def new
+    @group = Group.find 1
   end
 
   def edit
