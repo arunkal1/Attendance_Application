@@ -1,5 +1,5 @@
 <fieldset>
-  <%= s.name %><br>
+  <%= s.text_field :name %>
   <%= s.fields_for :attendance do |builder| %>
     <%= render 'layouts/attend_fields', a: builder %>
   <% end %>

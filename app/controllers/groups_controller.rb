@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+
   def index
     @groups = Group.all
   end
@@ -46,4 +47,5 @@ class GroupsController < ApplicationController
   def group_params
     group_params = params.require(:group).permit(:name,:stream,:startdate,:enddate,:active)
   end
+
 end

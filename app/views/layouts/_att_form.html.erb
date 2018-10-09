@@ -1,14 +1,12 @@
 <%= form_for @group do |g| %>
 
-  <div class="field">
-    <%= g.name %><br>
-  </div>
+  <%= @group.name %>
 
   <%= g.fields_for :students do |builder| %>
     <%= render 'layouts/stud_form', s: builder %>
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= g.submit %>
   </div>
 <% end %>
