@@ -1,0 +1,15 @@
+<%= form_for student do |p| %>
+  <div class="field">
+    <%= p.label :name %>
+    <%= p.text_field :name %>
+  </div>
+  <br>
+  <div class="field">
+    <%= p.label :group_id %>
+    <%= p.select(:group_id, Student::COURSE_LIST) %>
+  </div>
+  <br>
+  <div class="action">
+    <%= p.submit %>
+  </div>
+<% end %>
