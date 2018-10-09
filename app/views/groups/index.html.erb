@@ -2,5 +2,6 @@
 <% @groups.each do |group| %>
   <div class="container">
     <h2><%= link_to "#{group.name}", group %></h2>
+    <h3><%= group.stream %></h3>
   </div>
 <% end %>

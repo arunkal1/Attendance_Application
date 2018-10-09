@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_10_08_143250) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "stream"
     t.date "startdate"
     t.date "enddate"
     t.boolean "active"

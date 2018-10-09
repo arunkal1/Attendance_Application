@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Group.create(name: 'John', startdate: '10-09-2018', enddate: '03-23-2018')
+Group.create(name: 'Eng16', stream: 'Technical', startdate: '10-09-2018', enddate: '03-23-2018')
