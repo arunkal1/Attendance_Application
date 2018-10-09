@@ -14,33 +14,12 @@ Student.create(name: 'Dan', active: true, group_id: 1)
 Student.create(name: 'Tom', active: true, group_id: 1)
 Student.create(name: 'Arun', active: true, group_id: 1)
 
+aNumber = Random.new
 
-Attendance.create(date: '01/01/2018', att_status: 1, student_id: 1)
-Attendance.create(date: '01/01/2018', att_status: 2, student_id: 2)
-Attendance.create(date: '01/01/2018', att_status: 3, student_id: 3)
-Attendance.create(date: '01/01/2018', att_status: 4, student_id: 4)
-Attendance.create(date: '01/01/2018', att_status: 5, student_id: 5)
-
-Attendance.create(date: '02/01/2018', att_status: 1, student_id: 1)
-Attendance.create(date: '02/01/2018', att_status: 2, student_id: 2)
-Attendance.create(date: '02/01/2018', att_status: 3, student_id: 3)
-Attendance.create(date: '02/01/2018', att_status: 4, student_id: 4)
-Attendance.create(date: '02/01/2018', att_status: 5, student_id: 5)
-
-Attendance.create(date: '03/01/2018', att_status: 1, student_id: 1)
-Attendance.create(date: '03/01/2018', att_status: 2, student_id: 2)
-Attendance.create(date: '03/01/2018', att_status: 3, student_id: 3)
-Attendance.create(date: '03/01/2018', att_status: 4, student_id: 4)
-Attendance.create(date: '03/01/2018', att_status: 5, student_id: 5)
-
-Attendance.create(date: '04/01/2018', att_status: 1, student_id: 1)
-Attendance.create(date: '04/01/2018', att_status: 2, student_id: 2)
-Attendance.create(date: '04/01/2018', att_status: 3, student_id: 3)
-Attendance.create(date: '04/01/2018', att_status: 4, student_id: 4)
-Attendance.create(date: '04/01/2018', att_status: 5, student_id: 5)
-
-Attendance.create(date: '05/01/2018', att_status: 1, student_id: 1)
-Attendance.create(date: '05/01/2018', att_status: 2, student_id: 2)
-Attendance.create(date: '05/01/2018', att_status: 3, student_id: 3)
-Attendance.create(date: '05/01/2018', att_status: 4, student_id: 4)
-Attendance.create(date: '05/01/2018', att_status: 5, student_id: 5)
+(1..30).each do |i|
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 1)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 2)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 3)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 4)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 5)
+end
