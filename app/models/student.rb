@@ -1,4 +1,4 @@
 class Student < ApplicationRecord
   belongs_to :groups
-  has_many :attendences
+  has_many :attendances
 end

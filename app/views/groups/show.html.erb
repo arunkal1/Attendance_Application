@@ -1,2 +1,11 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+<h1>Attendance for group <%= @group.name %></h1>
+
+<!-- List all students on group -->
+
+
+
+<%= @group.students.each do |student|%>
+
+  <p><%= student %></p>
+
+<% end %>
