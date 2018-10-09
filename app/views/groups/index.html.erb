@@ -1,4 +1,4 @@
-<h1 class="headings">Groups</h1>
+<h1>Groups</h1>
 
   <div class="container">
     <div class="row">
@@ -10,6 +10,7 @@
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
             <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
             <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
+            <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li>
           </ul>
         </div>
       </div>
