@@ -1,6 +1,12 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1 {
+.list-h1 {
   text-align: center;
+}
+.show-containers {
+  margin: auto;
+  margin-top: 50px;
+  border: 1px grey solid;
+  height: 200px;
 }

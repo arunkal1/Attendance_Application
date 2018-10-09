@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Students</h1>
+  <h1 class="list-h1" >Students</h1>
   <table class="table">
     <thead>
       <tr>
@@ -14,7 +14,7 @@
       <% @students.each do |student| %>
         <tr>
           <th scope="row"><%= student.id %></th>
-          <td><%= student.name %></td>
+          <td><%= link_to "#{student.name}", student %></td>
           <td><%= student.active %></td>
           <td>[Student's stream]</td>
           <td><%= student.group_id %></td>
