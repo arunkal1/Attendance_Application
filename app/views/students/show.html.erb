@@ -6,7 +6,12 @@
     <div class="col-5 show-containers">
       <h1><%= @student.name.capitalize %></h1>
       <h1>Group <%= @student.group_id %></h1>
-      <h1><%= @group.stream.capitalize %></h1>
+      <%if @student.active == true %>
+        <h1 class="active"> Active </h1>
+      <% else %>
+        <h1 class="inactive"> Inactive </h1>
+      <% end %>
+      <h1><b><%=@group.stream.capitalize %></b> Stream</h1>
     </div>
   </div>
   <div class="show-attendance">

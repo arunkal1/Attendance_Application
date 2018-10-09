@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="list-h1" >Students</h1>
-  <table class="list-table table">
+  <table class="list-table table table-hover">
     <thead>
       <tr>
         <th scope"col">#</th>
@@ -15,7 +15,13 @@
         <tr>
           <th scope="row"><%= student.id %></th>
           <td><%= link_to "#{student.name.capitalize}", student %></td>
-          <td><%= student.active.to_s.capitalize%></td>
+          <td>
+            <%if student.active == true %>
+              <span class="active"> Active </span>
+            <% else %>
+              <span class="inactive"> Inactive </span>
+            <% end %>
+          </td>
           <td><%= @group.find(student.group_id).stream.capitalize%></td>
           <td><%= student.group_id %></td>
         </tr>
