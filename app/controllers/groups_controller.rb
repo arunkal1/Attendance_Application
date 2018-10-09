@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
+
   def index
+    @groups = Group.all
   end
 
   def show
@@ -19,4 +21,5 @@ class GroupsController < ApplicationController
 
   def destroy
   end
+
 end
