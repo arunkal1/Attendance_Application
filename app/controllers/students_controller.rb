@@ -17,14 +17,7 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new student_params
-    respond_to do |format|
-      if @student.save
-        format.html{redirect_to @student, notice: "'#{@student.name}' was created"}
-      else
-        format.html{render :new}
-      end
-    end
+  
   end
 
   def update
