@@ -4,7 +4,8 @@ class StudentsController < ApplicationController
   end
 
   def show
-    # @student = Student.find params[:id]
+    @student = Student.find params[:id]
+    @group = Group.find (@student.group_id)
   end
 
   def new
