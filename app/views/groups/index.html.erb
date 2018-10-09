@@ -1,6 +1,7 @@
 <h1 id = "test">Groups</h1>
 
 
+
 <button type="button" name="button" id="sort_name">Sort By Name</button>
 <button type="button" name="button" id="sort_id">Sort By Id</button>
 
@@ -10,7 +11,8 @@
     <div class="row">
       <% @groups.each do |group| %>
       <div class="col-md-4">
-        <div class="group-card">
+
+        <div class="group-card <%= group.active ? "active" : "inactive" %>">
           <h2><%= link_to "#{group.name}", group_path(group) %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
@@ -25,11 +27,13 @@
   </div>
 </div>
 <div class="" id="order_name">
+
   <div class="container">
     <div class="row">
       <% @groups1.each do |group| %>
       <div class="col-md-4">
-        <div class="group-card">
+
+        <div class="group-card <%= group.active ? "active" : "inactive" %>">
           <h2><%= link_to "#{group.name}", group_path(group) %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
@@ -42,7 +46,9 @@
       <% end %>
     </div>
   </div>
+
 </div>
+
 
 <div class="">
   <%= link_to "Add a Group", new_group_path, class: "btn btn-secondary new_group_button" %>

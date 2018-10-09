@@ -4,6 +4,7 @@ body {
 
 h1 {
   text-align: center;
+  margin-top: 15px;
 }
 
 .group-card {
@@ -28,4 +29,36 @@ h1 {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-top: 30px;
+}
+
+.dropdown_links {
+  color: rgba(255,255,255,.5);
+  margin-left: 10%;
+}
+
+.dropdown_links:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.active{
+  box-shadow: 10px 10px 10px green;
+}
+
+.active:hover ,
+.inactive:hover {
+  position: relative;
+  top: -10px;
+}
+
+.inactive{
+  box-shadow: 10px 10px 10px red;
 }
