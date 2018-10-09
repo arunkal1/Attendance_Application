@@ -20,6 +20,12 @@
           <td><%= student.group_id %></td>
         </tr>
       <% end %>
+
+      <br>
+      <br>
     </tbody>
   </table>
+  <div class="new_student">
+    <%= link_to 'Create a new student', new_student_path, class: "btn btn-primary" %>
+  </div>
 </div>
