@@ -16,7 +16,14 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new
+    @student = Student.new student_params
+    respond_to do |format|
+      if @student.save
+        format.html{redirect_to @student, notice: "'#{@student.name}' was created"}
+      else
+        format.html{render :new}
+      end
+    end
   end
 
   def update
@@ -25,5 +32,9 @@ class StudentsController < ApplicationController
 
   def destroy
     @student = Student.find params[:id]
+  end
+
+  def student_params
+    student_params = params.require(:student).permit(:name, :group_id)
   end
 end
