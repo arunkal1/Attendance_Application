@@ -10,6 +10,5 @@ class Student < ApplicationRecord
     courses.push output
   end
 
-  COURSE_LIST = ["Devops", "SDET", "Business Analytics"]
-
+  COURSE_LIST = courses
 end
