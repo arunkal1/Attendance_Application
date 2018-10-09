@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
   belongs_to :group
   has_many :attendances
-
+  
   courses = []
   groups = Group.all
 
