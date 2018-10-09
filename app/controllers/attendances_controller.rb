@@ -1,4 +1,7 @@
 class AttendancesController < ApplicationController
+
+  before_action :set_student
+
   def index
   end
 

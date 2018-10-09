@@ -1,3 +1,36 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #fafafa;
+}
+
+.list-h1 {
+  text-align: center;
+}
+
+.list-table {
+  margin-top: 25px;
+}
+
+.show-containers {
+  margin: auto;
+  margin-top: 50px;
+  height: 200px;
+}
+
+.show-profile {
+  border-radius: 50%;
+}
+
+.show-attendance {
+  margin-top: 50px;
+  height: 500px;
+  background-color: lightgrey;
+}
+
+.actions-list {
+  margin: auto 10px;
+  margin-top: 15px;
+}
