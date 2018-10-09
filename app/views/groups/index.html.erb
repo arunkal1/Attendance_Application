@@ -2,11 +2,12 @@
 
 <button type="button" name="button" id="sort">Sort By A-Z</button>
 
+
   <div class="container">
     <div class="row">
-      <% @groups1.each do |group| %>
+      <% @groups.each do |group| %>
       <div class="col-md-4">
-        <div class="group-card">
+        <div class="group-card <%= group.active ? "active" : "inactive" %>">
           <h2><%= link_to "#{group.name}", group %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
