@@ -1,0 +1,54 @@
+<%= form_for group do |g| %>
+
+
+<center>
+<% if group.errors.any? %>
+  <h2> <%= pluralize(group.errors.count,'error') %> to fix </h2>
+  <% group.errors.each do |attr, message| %>
+    <ul>
+      <li style="list-style: none;"><%= message %></li>
+    </ul>
+  <% end %>
+<% end %>
+<div class="form">
+  <div class="field">
+    <%= g.label :Name %>
+    <div class="nameInput">
+      <%= g.text_field :name %>
+    </div>
+  </div>
+  <br>
+  <div class="field">
+    <%= g.label :Stream %>
+    <div class="descInput">
+      <%= g.text_field :stream %>
+    </div>
+  </div>
+  <div class="field">
+    <%= g.label :Start_Date %>
+    <div class="descInput">
+      <%= g.text_field :startdate %>
+    </div>
+  </div>
+  <div class="field">
+    <%= g.label :End_Date %>
+    <div class="descInput">
+      <%= g.text_field :enddate %>
+    </div>
+  </div>
+  <div class="field">
+    <%= g.label :Active %>
+    <div class="descInput">
+      <%= g.text_field :active %>
+    </div>
+  </div>
+  <br>
+  <div class="field">
+    <div class="button">
+      <%= g.submit  %>
+    </div>
+  </div>
+</div>
+</center>
+
+<% end %>
