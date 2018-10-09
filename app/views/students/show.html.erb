@@ -1,11 +1,19 @@
 <div class="container">
   <div class="row show-row">
     <div class="col-5 show-containers">
-      <h2></h2>
+      <%= image_tag("profile_placeholder" , size: "200x200", class: "show-profile") %>
     </div>
     <div class="col-5 show-containers">
-      <h2>Student name: [Student Name]</h2>
-      <h1>Group</h1>
+      <h1><%= @student.name %></h1>
+      <h1>Group <%= @student.group_id %></h1>
+      <h1></h1>
     </div>
+  </div>
+  <div class="show-attendance">
+
+  </div>
+  <div class="actions-list">
+    <%= link_to "Edit Student", edit_student_path, class: "btn btn-primary" %>
+    <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
   </div>
 </div>
