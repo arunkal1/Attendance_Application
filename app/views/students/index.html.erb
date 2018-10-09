@@ -22,8 +22,8 @@
               <span class="inactive"> Inactive </span>
             <% end %>
           </td>
-          <td><%= @group.find(student.group_id).stream.capitalize%></td>
-          <td><%= student.group_id %></td>
+          <td><%= @group.find(student.group_id).stream.upcase%></td>
+          <td><%= @group.find(student.group_id).name.upcase %></td>
         </tr>
       <% end %>
     </tbody>
