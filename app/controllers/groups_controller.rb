@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   def index
     @groups = Group.all
+    @groups1 = Group.sort_by_name
   end
 
   def show
