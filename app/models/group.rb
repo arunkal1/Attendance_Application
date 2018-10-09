@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
 
-  has_many :students
+  has_many :student
 
   active_option = [true,false]
 
