@@ -1,0 +1,36 @@
+<%= form_for student do |p| %>
+  <% if student.errors.any? %>
+    <h2><%= pluralize(student.errors.count, 'error') %> to fix </h2>
+      <% student.errors.full_messages.each do |message| %>
+      <ul>
+        <li> <%= message %> </li>
+      </ul>
+    <% end %>
+  <% end %>
+  <br>
+  <center>
+  <div class="form">
+    <div class="field">
+      <%= p.label :name %>
+      <div class="nameInput">
+        <%= p.text_field :name %>
+      </div>
+    </div>
+    <br>
+    <div class="field">
+      <%= p.label :group_id %>
+      <div class="select">
+        <%= p.select(:group_id, Student::COURSE_LIST) %>
+      </div>
+    </div>
+    <div class="field">
+      <%= p.label :active %>
+      <%= p.check_box :active %>
+    </div>
+    <br>
+    <div class="action">
+      <%= p.submit "Submit" %>
+    </div>
+  </div>
+</center>
+<% end %>

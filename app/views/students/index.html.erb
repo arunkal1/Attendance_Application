@@ -1,2 +1,37 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<div class="container">
+  <h1 class="list-h1" >Students</h1>
+  <table class="list-table table table-hover">
+    <thead>
+      <tr>
+        <th scope"col">#</th>
+        <th scope"col">Name</th>
+        <th scope"col">Active</th>
+        <th scope"col">Stream</th>
+        <th scope"col">Group</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <th scope="row"><%= student.id %></th>
+          <td><%= link_to "#{student.name.capitalize}", student %></td>
+          <td>
+            <%if student.active == true %>
+              <span class="active"> Active </span>
+            <% else %>
+              <span class="inactive"> Inactive </span>
+            <% end %>
+          </td>
+          <td><%= @group.find(student.group_id).stream.upcase%></td>
+          <td><%= @group.find(student.group_id).name.upcase %></td>
+        </tr>
+      <% end %>
+
+      <br>
+      <br>
+    </tbody>
+  </table>
+  <div class="new_student">
+    <%= link_to 'Create a new student', new_student_path, class: "btn btn-primary" %>
+  </div>
+</div>

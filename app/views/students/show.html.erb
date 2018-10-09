@@ -1,2 +1,25 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<div class="container">
+  <div class="row show-row">
+    <div class="col-5 show-containers">
+      <%= image_tag("profile_placeholder" , size: "200x200", class: "show-profile") %>
+    </div>
+    <div class="col-5 show-containers">
+      <h1><%= @student.name.capitalize %>
+      -<%if @student.active == true %>
+      <span class="active">Active</span>
+      <%else%>
+      <span class="inactive">Inactive</span>
+      <%end%>
+      </h1>
+      <h1>Group: <%= @group.name.upcase %></h1>
+      <h1><b><%=@group.stream.upcase %></b> Stream</h1>
+    </div>
+  </div>
+  <div class="show-attendance">
+
+  </div>
+  <div class="actions-list">
+    <%= link_to "Edit Student", edit_student_path, class: "btn btn-primary" %>
+    <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>

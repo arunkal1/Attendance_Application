@@ -1,2 +1,23 @@
-<h1>Groups#index</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
+<h1>Groups</h1>
+
+  <div class="container">
+    <div class="row">
+      <% @groups.each do |group| %>
+      <div class="col-md-4">
+        <div class="group-card">
+          <h2><%= link_to "#{group.name}", group %></h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
+            <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
+            <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
+            <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li>
+          </ul>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+<div class="">
+  <%= link_to "Add a Group", new_group_path, class: "btn btn-secondary new_group_button" %>
+</div>
