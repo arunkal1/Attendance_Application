@@ -1,0 +1,18 @@
+body {
+  background: #fafafa;
+}
+
+.headings {
+  text-align: center;
+}
+
+.group-card {
+  border: 2px #7C7C7C solid;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.group-card-info {
+  background: #fafafa;
+}
