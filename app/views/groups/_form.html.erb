@@ -38,8 +38,8 @@
   </div>
   <div class="field">
     <%= g.label :Active %>
-    <div class="descInput">
-      <%= g.text_field :active %>
+    <div class="select">
+      <%= g.select(:active, Group::ACTIVE_OPTION)%>
     </div>
   </div>
   <br>
