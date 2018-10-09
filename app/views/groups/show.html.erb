@@ -1,2 +1,25 @@
 <h1>Groups#show</h1>
 <p>Find me in app/views/groups/show.html.erb</p>
+
+<%= @group.students.each do |student| %>
+  <p><%= student.name %></p>
+<% end %>
+
+<table>
+  <tr>
+    <th>Student</th>
+    <th>On Time</th>
+    <th>Less Than 5mins Late</th>
+    <th>Greater Than 5mins Late</th>
+    <th>Authorised Absence</th>
+    <th>AWOL</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>20%</td>
+    <td>20%</td>
+    <td>20%</td>
+    <td>20%</td>
+    <td>20%</td>
+  </tr>
+</table>
