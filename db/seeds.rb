@@ -16,14 +16,14 @@ Student.create(name: 'Arun', active: true, group_id: 1)
 
 
 Attendance.create(date: '01/01/2018', att_status: 1, student_id: 1)
-Attendance.create(date: '01/01/2018', att_status: 2, student_id: 2)
+Attendance.create(date: '01/01/2018', att_status: 1, student_id: 2)
 Attendance.create(date: '01/01/2018', att_status: 3, student_id: 3)
 Attendance.create(date: '01/01/2018', att_status: 4, student_id: 4)
 Attendance.create(date: '01/01/2018', att_status: 5, student_id: 5)
 
 Attendance.create(date: '02/01/2018', att_status: 1, student_id: 1)
 Attendance.create(date: '02/01/2018', att_status: 2, student_id: 2)
-Attendance.create(date: '02/01/2018', att_status: 3, student_id: 3)
+Attendance.create(date: '02/01/2018', att_status: 4, student_id: 3)
 Attendance.create(date: '02/01/2018', att_status: 4, student_id: 4)
 Attendance.create(date: '02/01/2018', att_status: 5, student_id: 5)
 
