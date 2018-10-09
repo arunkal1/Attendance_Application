@@ -39,6 +39,7 @@ def self.hydrate group_data
   group.stream = group_data['stream']
   group.startdate = group_data['startdate']
   group.enddate = group_data['enddate']
+  group.active = group_data['active']
 
   group
 end

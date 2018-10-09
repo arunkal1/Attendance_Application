@@ -1,13 +1,17 @@
-<h1>Groups</h1>
+<h1 id = "test">Groups</h1>
 
-<button type="button" name="button" id="sort">Sort By A-Z</button>
 
+<button type="button" name="button" id="sort_name">Sort By Name</button>
+<button type="button" name="button" id="sort_id">Sort By Id</button>
+
+
+<div class="" id="order_id">
   <div class="container">
     <div class="row">
-      <% @groups1.each do |group| %>
+      <% @groups.each do |group| %>
       <div class="col-md-4">
         <div class="group-card">
-          <h2><%= link_to "#{group.name}", group %></h2>
+          <h2><%= link_to "#{group.name}", group_path(group) %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
             <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
@@ -19,6 +23,26 @@
       <% end %>
     </div>
   </div>
+</div>
+<div class="" id="order_name">
+  <div class="container">
+    <div class="row">
+      <% @groups1.each do |group| %>
+      <div class="col-md-4">
+        <div class="group-card">
+          <h2><%= link_to "#{group.name}", group_path(group) %></h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
+            <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
+            <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
+            <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li>
+          </ul>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="">
   <%= link_to "Add a Group", new_group_path, class: "btn btn-secondary new_group_button" %>
