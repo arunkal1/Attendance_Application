@@ -1,3 +1,3 @@
 class Attendance < ApplicationRecord
-  has_many :students
+  belongs_to :students
 end
