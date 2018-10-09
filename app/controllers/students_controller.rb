@@ -17,7 +17,6 @@ class StudentsController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
     @student = Student.new
       respond_to do |format|
         if @student.save
@@ -25,15 +24,6 @@ class StudentsController < ApplicationController
         else
           format.html{render :new}
         end
-=======
-    @student = Student.new student_params
-    respond_to do |format|
-      if @student.save
-        format.html{redirect_to @student, notice: "'#{@student.name}' was created"}
-      else
-        format.html{render :new}
-      end
->>>>>>> a0d6aa48058801f9c744bb26cfc463f3ea9a96c3
     end
   end
 
