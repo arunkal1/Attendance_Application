@@ -8,10 +8,19 @@ body {
 
 .list-h1 {
   text-align: center;
+  margin-top: 15px; // Margin between heading and navbar.
 }
 
 .list-table {
   margin-top: 25px;
+}
+
+.active {
+  color: green;
+}
+
+.inactive {
+  color: darkgrey;
 }
 
 .show-containers {
@@ -31,6 +40,5 @@ body {
 }
 
 .actions-list {
-  margin: auto 10px;
-  margin-top: 15px;
+  margin: 15px 10px;
 }

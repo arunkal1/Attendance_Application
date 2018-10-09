@@ -4,9 +4,15 @@
       <%= image_tag("profile_placeholder" , size: "200x200", class: "show-profile") %>
     </div>
     <div class="col-5 show-containers">
-      <h1><%= @student.name.capitalize %></h1>
-      <h1>Group <%= @student.group_id %></h1>
-      <h1><%= @group.stream.capitalize %></h1>
+      <h1><%= @student.name.capitalize %>
+      -<%if @student.active == true %>
+      <span class="active">Active</span>
+      <%else%>
+      <span class="inactive">Inactive</span>
+      <%end%>
+      </h1>
+      <h1>Group: <%= @group.name.upcase %></h1>
+      <h1><b><%=@group.stream.upcase %></b> Stream</h1>
     </div>
   </div>
   <div class="show-attendance">
