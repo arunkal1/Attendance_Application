@@ -1,22 +1,32 @@
 <div class="container">
   <div class="row show-row">
-    <div class="col-5 show-containers">
+    <div class="col-md-6 show-containers">
       <%= image_tag("profile_placeholder" , size: "200x200", class: "show-profile") %>
+      <%if @student.active == true %>
+        <h1><span class="badge badge-success show-active">Active</span></h1>
+        <%else%>
+        <h1><span class="badge badge-secondary show-active">Inactive</span></h1>
+        <%end%>
     </div>
-    <div class="col-5 show-containers">
-      <h1><%= @student.name.capitalize %>
-      -<%if @student.active == true %>
-      <span class="active1">Active</span>
-      <%else%>
-      <span class="inactive1">Inactive</span>
-      <%end%>
-      </h1>
-      <h1>Group: <%= @group.name.upcase %></h1>
-      <h1>Stream: <%=@group.stream.upcase %></h1>
+    <div class="col-md-6 show-containers">
+      <table>
+        <tr>
+          <td><h1>Name</h1></td>
+          <td><h1><%= @student.name.titlecase %></h1></td>
+        </tr>
+        <tr>
+          <td><h1>Group</h1></td>
+          <td><h1><%= link_to "#{@group.name.upcase}", @group, class: "badge badge-info" %></h1></td>
+        </tr>
+        <tr>
+          <td><h1>Stream</h1></td>
+          <td><h1><span class="badge badge-info"><%=@group.stream.upcase %></span></h1></td>
+        </tr>
+      </table>
     </div>
   </div>
 
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th scope="col">On Time</th>
@@ -81,8 +91,6 @@
   </table>
 
 <!-- CALENDAR ----------------->
-
-  <h1>Calendar</h1>
 
   <table class="table table-bordered">
   <thead>
@@ -160,47 +168,45 @@
 
 <!-- Key -->
 
-<h2 class="key">Key</h2>
+<h2 class="calendarkey">Key</h2>
 
-<div class="row key">
-  <div class="col-lg-2">
+<div class="row calendarkey">
+
+  <div class="col">
     <p>On Time:</p>
   </div>
-  <div class="col-lg-2 on_time">
+  <div class="col on_time">
 
   </div>
-</div>
-<div class="row key">
-  <div class="col-lg-2">
+
+  <div class="col">
     <p>< 5 mins:</p>
   </div>
-  <div class="col-lg-2 less_than_five">
+  <div class="col less_than_five">
 
   </div>
-</div>
-<div class="row key">
-  <div class="col-lg-2">
+
+  <div class="col">
     <p>> 5 mins:</p>
   </div>
-  <div class="col-lg-2 more_than_five">
+  <div class="col more_than_five">
 
   </div>
-</div>
-<div class="row key">
-  <div class="col-lg-2">
+
+  <div class="col">
     <p>Authorised</p>
   </div>
-  <div class="col-lg-2 auth">
+  <div class="col auth">
 
   </div>
-</div>
-<div class="row key">
-  <div class="col-lg-2">
+
+  <div class="col">
     <p>Unauthorised</p>
   </div>
-  <div class="col-lg-2 unauth">
+  <div class="col unauth">
 
   </div>
+
 </div>
 
   <div class="actions-list">
