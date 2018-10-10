@@ -2,7 +2,7 @@ class Group < ApplicationRecord
 
   # attr_accessible :name, :students_attributes
   has_many :students
-  accepts_nested_attributes_for :students, allow_destroy: true
+  # accepts_nested_attributes_for :students, allow_destroy: true
 
   active_option = [true,false]
 

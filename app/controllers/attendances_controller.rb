@@ -10,9 +10,17 @@ class AttendancesController < ApplicationController
 
   def new
     @group = Group.find 1
+
     # @group.students.each do |student|
       @attendance = @group.students[1].attendances.new
     # end
+
+    # @group.students.each do |student|
+    #   puts "STUDENT: #{student.name}"
+    #   @attendance = student.attendances.new
+    #   puts "STUDENT ATTENDANCES: #{student.attendances}"
+    # end
+
   end
 
   def edit
@@ -20,6 +28,9 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new attendance_params
+
+    # puts "ATTENADANCE: #{@attendance.att_status}"
+
     @attendance.save
   end
 
