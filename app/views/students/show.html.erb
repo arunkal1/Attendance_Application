@@ -119,7 +119,6 @@
     <% week_date = @group.startdate %>
     <% (1..cWeeks).each do |i| %>
       <tr>
-        <th scope="row"><%= i %></th>
         <th scope="row" class="week"><div>Week <%= i %></div> <div><%= week_date.strftime('%d/%m') %></div></th>
         <% (0..6).each do |j| %>
           <!-- Confirm that the attendance exists -->
