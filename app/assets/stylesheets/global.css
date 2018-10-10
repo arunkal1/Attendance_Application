@@ -1,5 +1,5 @@
 body {
-  background: #fafafa;
+  background-color: #fafafa;
   margin-bottom: 100px;
 }
 
@@ -79,12 +79,4 @@ h1 {
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 15px;
-}
-
-.text-active {
-  text-shadow: 2px 2px 10px green;
-}
-
-.text-inactive {
-  text-shadow: 2px 2px 10px red;
 }
