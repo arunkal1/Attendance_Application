@@ -1,12 +1,13 @@
 <%= form_for @attendance do |g| %>
 
   <%= @group.name %> <br>
-  <!-- @group.students.each do |student| %> -->
-    <%= @group.students[1].name %>
+   <!-- @group.students.each do |student| %> -->
+    <%= g.hidden_field :student_id %>
+    <%= @group.students[4].name %> <br>
     <!-- g.fields_for :attendances do |builder| %> -->
-    <%= g.text_field :att_status %>
+    <%= g.text_field :att_status %> <br>
        <!-- render 'layouts/attend_fields', a: builder %> -->
-   <!-- end %> -->
+   <!--  end %> -->
    <!-- end %> -->
 
   <div class="actions">
