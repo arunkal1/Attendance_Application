@@ -9,7 +9,7 @@
 
 <div class="container">
   <h1 class="list-h1" >Students</h1>
-  <table id="studentslist" class="list-table table table-hover">
+  <table id="studentslist" class="list-table table table-hover table-bordered">
     <thead>
       <tr>
         <th scope"col">#</th>
@@ -23,7 +23,7 @@
       <% @students.each do |student| %>
         <tr>
           <th scope="row"><%= student.id %></th>
-          <td><%= link_to "#{student.name.capitalize}", student %></td>
+          <td><%= link_to "#{student.name.titlecase}", student %></td>
           <td>
             <%if student.active == true %>
               <span class="badge badge-success"> Active </span>
@@ -32,7 +32,8 @@
             <% end %>
           </td>
           <td><span class="badge badge-info"><%= @group.find(student.group_id).stream.upcase%></span></td>
-          <td><span class="badge badge-info"><%= @group.find(student.group_id).name.upcase %></span></td>
+          <td>
+          <%= link_to "#{@group.find(student.group_id).name.upcase}", @group.find(student.group_id), class: "badge badge-info" %></td>
         </tr>
       <% end %>
 
