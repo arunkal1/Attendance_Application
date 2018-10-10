@@ -110,7 +110,7 @@
     <% count = count + 5 %>
       <tr>
         <th scope="row"><%= i %></th>
-        
+
         <% (0..4).each do |j| %>
           <% if @student.attendances[count + j].nil? %>
             <td></td>
@@ -123,11 +123,6 @@
     <% end %>
   </tbody>
 </table>
-
-<!-- Have a switch statement for the att_status attribute. Depending on the number, 1 to 5, this dictates what colour the <td></td> div will take. Each switch statement will change the class of that particular <td></td>?  -->
-<!-- Each monday will display (in the bottom right hand corner) the date -->
-<!-- The start date will correspond to the first "div" of the calendar. The next "div" will be that date + 1 -->
-<!-- Every 5th day have to +2 to compensate for the weekend? -->
 
 <!-- END OF CALENDAR ------------------>
 
