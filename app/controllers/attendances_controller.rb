@@ -10,7 +10,9 @@ class AttendancesController < ApplicationController
 
   def new
     @group = Group.find 1
-
+    @group.students.each do |student|
+      @attendance = student.attendances.new
+    end
   end
 
   def edit
@@ -25,5 +27,9 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def attendance_params
+    params.require(:attendance).permit(:att_status)
   end
 end
