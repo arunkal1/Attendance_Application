@@ -87,37 +87,57 @@
   <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Week</th>
-      <th scope="col">Monday</th>
-      <th scope="col">Tuesday</th>
-      <th scope="col">Wednesday</th>
-      <th scope="col">Thursday</th>
-      <th scope="col">Friday</th>
+      <th scope="col" class="weekSize">Week</th>
+      <th scope="col" class="otherSize">Monday</th>
+      <th scope="col" class="otherSize">Tuesday</th>
+      <th scope="col" class="otherSize">Wednesday</th>
+      <th scope="col" class="otherSize">Thursday</th>
+      <th scope="col" class="otherSize">Friday</th>
     </tr>
   </thead>
   <tbody>
     <% @group.startdate %>
     <% @group.enddate %>
     <% cDays = (@group.enddate - @group.startdate).to_f %>
-    <h3>Total Weeks: <%= cWeeks = (cDays / 7).ceil %></h3> 
+    <h3>Total Weeks: <%= cWeeks = (cDays / 7).ceil %></h3>
 
+    <!-- Polulates calendar with attendance types (1 - 5) -->
+    <!-- Will PUT weekend dates in weekdays if weekends are included in attendances -->
+    <%# TODO: FIX ABOVE %>
+
+    <% count = -5 %>
     <% (1..cWeeks).each do |i| %>
+    <% count = count + 5 %>
       <tr>
         <th scope="row"><%= i %></th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
+        <% (0..4).each do |j| %>
+          <% if @student.attendances[count + j].nil? %>
+            <td></td>
+          <% else %>
+            <%
+            className = ""
+            case @student.attendances[count + j].att_status
+            when 1
+              className = "on_time"
+            when 2
+              className = "less_than_five"
+            when 3
+              className = "more_than_five"
+            when 4
+              className = "auth"
+            when 5
+              className = "unauth"
+            end
+            %>
+            <td class="<%= className %>"></td>
+          <% end %>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<!-- Have a switch statement for the att_status attribute. Depending on the number, 1 to 5, this dictates what colour the <td></td> div will take. Each switch statement will change the class of that particular <td></td>?  -->
-<!-- Each monday will display (in the bottom right hand corner) the date -->
-<!-- The start date will correspond to the first "div" of the calendar. The next "div" will be that date + 1 -->
-<!-- Every 5th day have to +2 to compensate for the weekend? -->
 
 <!-- END OF CALENDAR ------------------>
 
