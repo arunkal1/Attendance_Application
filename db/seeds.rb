@@ -24,7 +24,7 @@ Student.create(name: 'Dan', active: true, group_id: 1)
 Student.create(name: 'Tom', active: true, group_id: 1)
 Student.create(name: 'Bakang', active: true, group_id: 1)
 Student.create(name: 'Arun', active: true, group_id: 1)
-Student.create(name: 'Micheal', active: true, group_id: 1)
+Student.create(name: 'Michael', active: true, group_id: 1)
 Student.create(name: 'Elisha', active: true, group_id: 1)
 Student.create(name: 'Pinder', active: true, group_id: 1)
 
