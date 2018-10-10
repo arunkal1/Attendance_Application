@@ -51,17 +51,17 @@ h1 {
   width: 100%;
 }
 
-.active{
+.active-group{
   box-shadow: 10px 10px 10px green;
 }
 
-.active:hover ,
-.inactive:hover {
+.active-group:hover ,
+.inactive-group:hover {
   position: relative;
   top: -10px;
 }
 
-.inactive{
+.inactive-group{
   box-shadow: 10px 10px 10px red;
   opacity: 0.7;
 }
