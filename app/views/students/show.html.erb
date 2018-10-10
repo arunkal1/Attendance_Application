@@ -116,10 +116,10 @@
     <%# TODO: FIX ABOVE %>
 
     <% count = 0 %>
+    <% week_date = @group.startdate %>
     <% (1..cWeeks).each do |i| %>
       <tr>
-        <th scope="row"><%= i %></th>
-
+        <th scope="row" class="week"><div>Week <%= i %></div> <div><%= week_date.strftime('%d/%m') %></div></th>
         <% (0..6).each do |j| %>
           <!-- Confirm that the attendance exists -->
           <!-- If it doesn't, leave the calendar space blank if it is a weekday -->
@@ -159,7 +159,7 @@
             <% end %>
           <% end %>
         <% end %>
-
+        <% week_date += 7 %>
       </tr>
       <% count = count + 7 %>
     <% end %>

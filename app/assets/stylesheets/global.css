@@ -26,11 +26,17 @@ h1 {
 }
 
 .group-container {
-  border: 2px #7C7C7C solid;
-  border-radius: 5px;
   margin-top: 30px;
   padding-bottom: 30px;
   padding-top: 30px;
+}
+
+.group-container ul{
+  padding-left: 0;
+}
+
+.group-container ul li{
+  list-style: none;
 }
 
 .dropdown_links {
