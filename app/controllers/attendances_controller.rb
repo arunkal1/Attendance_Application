@@ -12,7 +12,8 @@ class AttendancesController < ApplicationController
     @group = Group.find 1
 
     # @group.students.each do |student|
-      @attendance = @group.students[4].attendances.new
+      # @attendance = @group.students[1].attendances.new
+      @attendance = Attendance.new
     # end
 
     # @group.students.each do |student|
@@ -34,6 +35,7 @@ class AttendancesController < ApplicationController
     puts "ID: #{@attendance.student_id}"
 
     @attendance.save
+    redirect_to new_attendance_path
   end
 
   def update
