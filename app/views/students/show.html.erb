@@ -98,11 +98,12 @@
   <tbody>
     <% (1..13).each do |i| %>
       <tr>
-        <% @student.attendances.each do |attendance| %>
-          <% (1..5).each do |j| %>
-            <td><%= attendance.att_status %></td>
-          <% end %>
-        <% end %>
+        <th scope="row"><%= i %></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>
