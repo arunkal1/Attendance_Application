@@ -21,7 +21,20 @@
 .show-containers {
   margin: auto;
   margin-top: 50px;
-  height: 200px;
+  height: 220px;
+  // border: black 1px solid;
+  display: block;
+  // min-width: 200px;
+}
+
+.show-containers table {
+  float: right;
+}
+
+.show-containers table td {
+  padding: 1px;
+  padding-left: 15px;
+  // border: 1px solid black;
 }
 
 .show-profile {
@@ -47,6 +60,15 @@
 @media screen and (max-width: 770px) {
   h1 {
     font-size: 30px;
+  }
+
+  .show-containers{
+    text-align: center;
+  }
+
+  .show-containers table {
+    float: none;
+    margin: auto;
   }
 }
 
