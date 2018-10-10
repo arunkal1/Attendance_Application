@@ -1,7 +1,7 @@
 <!-- JS code to check if DataTables applied, if not then apply it to the students list. -->
 <script type="text/javascript">
   $(document).on('turbolinks:load', function() {
-      if (!document.getElementById("studentslist_wrapper")) {
+      if (!document.getElementById("group-attendance_wrapper")) {
         $('#group-attendance').DataTable();
       }
   });
