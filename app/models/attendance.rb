@@ -3,9 +3,10 @@ class Attendance < ApplicationRecord
   belongs_to :student
 
 
-
+  groups_list =[]
   courses = []
   group = Group.all
+
 
   group.each do |g|
     g.students.each do |student|
@@ -15,4 +16,5 @@ class Attendance < ApplicationRecord
   end
 
   STUDENT_LIST = courses
+
 end
