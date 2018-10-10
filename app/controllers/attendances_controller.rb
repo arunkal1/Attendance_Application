@@ -10,12 +10,15 @@ class AttendancesController < ApplicationController
 
   def new
     @group = Group.find 1
+
   end
 
   def edit
   end
 
   def create
+    @attendance = Attendance.create attendance_params
+    @attendance.save
   end
 
   def update

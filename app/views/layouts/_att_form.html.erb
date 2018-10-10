@@ -1,9 +1,11 @@
 <%= form_for @group do |g| %>
 
-  <%= @group.name %>
-
-  <%= g.fields_for :students do |builder| %>
-    <%= render 'layouts/stud_form', s: builder %>
+  <%= @group.name %> <br>
+  <%= @group.students.each do |student| %>
+    <%= student.name %>
+    <%= g.fields_for :attendance do |builder| %>
+      <%= render 'layouts/attend_fields', a: builder %>
+    <% end %>
   <% end %>
 
   <div class="actions">
