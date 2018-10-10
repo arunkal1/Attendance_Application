@@ -1,11 +1,31 @@
 <%= form_for @attendance do |g| %>
 
+  <% student_list = [] %>
+  <% group = Group.all %>
+
+  <%= g.label :date %>
+  <%= g.text_field :date %> <br>
+
+  <% exists = false %>
+  <% group.each do |g| %>
+    <% g.students.each do |student| %>
+
+      <% student.attendances.each do |a| %>
+        <% if a.date == :date  %>
+          <% exists = true %>
+        <% end %>
+      <% end %>
+      <% unless exists == true %>
+        <% output = "#{student.id} - #{student.name}" %>
+        <% student_list.push output %>
+      <% end %>
+    <% end %>
+  <% end %>
+
   <%= @group.name %> <br>
     <!-- @group.students.each do |student| %> -->
     <% student = @group.students[0] %>
-    <%= g.label :date %>
-    <%= g.text_field :date %> <br>
-    <%= g.select(:student_id, Attendance::STUDENT_LIST) %>
+    <%= g.select(:student_id, student_list) %>
     <!--  g.hidden_field :student_id, :value => student.id %> -->
      <!-- student.name %> <br> -->
     <!-- g.fields_for :attendances do |builder| %> -->
