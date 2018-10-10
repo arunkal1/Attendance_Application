@@ -73,3 +73,9 @@ h1 {
   float: right;
   margin: 5px;
 }
+
+.buttons-sort {
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
