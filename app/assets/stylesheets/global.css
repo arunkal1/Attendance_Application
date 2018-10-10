@@ -83,3 +83,11 @@ h1 {
   padding-top: 20px;
   padding-bottom: 15px;
 }
+
+.attend_group {
+  margin-bottom: 25px;
+}
+
+.attend_group li{
+  list-style: none;
+}
