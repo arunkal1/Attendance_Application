@@ -1,3 +1,12 @@
+<!-- JS code to check if DataTables applied, if not then apply it to the students list. -->
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+      if (!document.getElementById("studentslist_wrapper")) {
+        $('#group-attendance').DataTable();
+      }
+  });
+</script>
+
 <div class="container">
 
   <div class="row">
@@ -16,73 +25,76 @@
 </div>
   <h1>Attendance for: <%= @group.name %></h1>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Student</th>
-        <th scope="col">On Time</th>
-        <th scope="col">< 5 mins</th>
-        <th scope="col">> 5 mins</th>
-        <th scope="col">Authorised</th>
-        <th scope="col">Unauthorised</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="container">
+    <table id="group-attendance" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Student</th>
+          <th scope="col">On Time</th>
+          <th scope="col">< 5 mins</th>
+          <th scope="col">> 5 mins</th>
+          <th scope="col">Authorised</th>
+          <th scope="col">Unauthorised</th>
+        </tr>
+      </thead>
+      <tbody>
 
-      <% @group.students.each do |student| %>
+        <% @group.students.each do |student| %>
 
-      <% att_array = [0, 0, 0, 0, 0]
-         percArray = [0, 0, 0, 0, 0] %>
+        <% att_array = [0, 0, 0, 0, 0]
+        percArray = [0, 0, 0, 0, 0] %>
 
-      <tr>
-        <% student.attendances.each do |attendance| %>
+        <tr>
+          <% student.attendances.each do |attendance| %>
 
-        <%
+          <%
 
-        case attendance.att_status
-        when 1
-          att_array[0] += 1
-        when 2
-          att_array[1] += 1
-        when 3
-          att_array[2] += 1
-        when 4
-          att_array[3] += 1
-        when 5
-          att_array[4] += 1
-        end
+          case attendance.att_status
+          when 1
+            att_array[0] += 1
+          when 2
+            att_array[1] += 1
+          when 3
+            att_array[2] += 1
+          when 4
+            att_array[3] += 1
+          when 5
+            att_array[4] += 1
+          end
 
-        %>
+          %>
 
-        <% end %>
+          <% end %>
 
-        <%
+          <%
 
-        sum = 0.0
+          sum = 0.0
 
-        att_array.each do |value|
-          sum+=value
-        end
+          att_array.each do |value|
+            sum+=value
+          end
 
-        percArray[0] = ((att_array[0] / sum) * 100).round 2
-        percArray[1] = ((att_array[1] / sum) * 100).round 2
-        percArray[2] = ((att_array[2] / sum) * 100).round 2
-        percArray[3] = ((att_array[3] / sum) * 100).round 2
-        percArray[4] = ((att_array[4] / sum) * 100).round 2
+          percArray[0] = ((att_array[0] / sum) * 100).round 2
+          percArray[1] = ((att_array[1] / sum) * 100).round 2
+          percArray[2] = ((att_array[2] / sum) * 100).round 2
+          percArray[3] = ((att_array[3] / sum) * 100).round 2
+          percArray[4] = ((att_array[4] / sum) * 100).round 2
 
-        %>
+          %>
 
-        <td><%= student.name %></td>
-        <td><%= percArray[0] %>%</td>
-        <td><%= percArray[1] %>%</td>
-        <td><%= percArray[2] %>%</td>
-        <td><%= percArray[3] %>%</td>
-        <td><%= percArray[4] %>%</td>
+          <td><%= student.name %></td>
+          <td><%= percArray[0] %>%</td>
+          <td><%= percArray[1] %>%</td>
+          <td><%= percArray[2] %>%</td>
+          <td><%= percArray[3] %>%</td>
+          <td><%= percArray[4] %>%</td>
 
         </tr>
-      <% end %>
+        <% end %>
 
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+
+  </div>
 
 </div>
