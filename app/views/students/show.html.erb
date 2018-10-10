@@ -15,12 +15,179 @@
       <h1>Stream: <%=@group.stream.upcase %></h1>
     </div>
   </div>
-  <div class="row show-attendance">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">On Time</th>
+        <th scope="col">< 5 mins</th>
+        <th scope="col">> 5 mins</th>
+        <th scope="col">Authorised</th>
+        <th scope="col">Unauthorised</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% att_array = [0, 0, 0, 0, 0]
+         percArray = [0, 0, 0, 0, 0] %>
+
+      <tr>
+
+        <% @student.attendances.each do |attendance| %>
+
+          <%
+
+          case attendance.att_status
+          when 1
+            att_array[0] += 1
+          when 2
+            att_array[1] += 1
+          when 3
+            att_array[2] += 1
+          when 4
+            att_array[3] += 1
+          when 5
+            att_array[4] += 1
+          end
+
+          %>
+
+        <% end %>
+
+        <%
+
+        sum = 0.0
+
+        att_array.each do |value|
+          sum+=value
+        end
+
+        percArray[0] = ((att_array[0] / sum) * 100).round 2
+        percArray[1] = ((att_array[1] / sum) * 100).round 2
+        percArray[2] = ((att_array[2] / sum) * 100).round 2
+        percArray[3] = ((att_array[3] / sum) * 100).round 2
+        percArray[4] = ((att_array[4] / sum) * 100).round 2
+
+        %>
+
+        <td><%= percArray[0] %>%</td>
+        <td><%= percArray[1] %>%</td>
+        <td><%= percArray[2] %>%</td>
+        <td><%= percArray[3] %>%</td>
+        <td><%= percArray[4] %>%</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+<!-- CALENDAR ----------------->
+
+  <h1>Calendar</h1>
+
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" class="weekSize">Week</th>
+      <th scope="col" class="otherSize">Monday</th>
+      <th scope="col" class="otherSize">Tuesday</th>
+      <th scope="col" class="otherSize">Wednesday</th>
+      <th scope="col" class="otherSize">Thursday</th>
+      <th scope="col" class="otherSize">Friday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @group.startdate %>
+    <% @group.enddate %>
+    <% cDays = (@group.enddate - @group.startdate).to_f %>
+    <h3>Total Weeks: <%= cWeeks = (cDays / 7).ceil %></h3>
+
+    <!-- Polulates calendar with attendance types (1 - 5) -->
+    <!-- Will PUT weekend dates in weekdays if weekends are included in attendances -->
+    <%# TODO: FIX ABOVE %>
+
+    <% count = -5 %>
+    <% (1..cWeeks).each do |i| %>
+    <% count = count + 5 %>
+      <tr>
+        <th scope="row"><%= i %></th>
+
+        <% (0..4).each do |j| %>
+          <% if @student.attendances[count + j].nil? %>
+            <td></td>
+          <% else %>
+            <%
+            className = ""
+            case @student.attendances[count + j].att_status
+            when 1
+              className = "on_time"
+            when 2
+              className = "less_than_five"
+            when 3
+              className = "more_than_five"
+            when 4
+              className = "auth"
+            when 5
+              className = "unauth"
+            end
+            %>
+            <td class="<%= className %>"></td>
+          <% end %>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- END OF CALENDAR ------------------>
+
+<!-- Key -->
+
+<h2 class="key">Key</h2>
+
+<div class="row key">
+  <div class="col-lg-2">
+    <p>On Time:</p>
   </div>
-  <div class="row">
-    <div class="actions-list">
-      <%= link_to "Edit Student", edit_student_path, class: "btn btn-primary" %>
-      <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
-    </div>
+  <div class="col-lg-2 on_time">
+
+  </div>
+</div>
+<div class="row key">
+  <div class="col-lg-2">
+    <p>< 5 mins:</p>
+  </div>
+  <div class="col-lg-2 less_than_five">
+
+  </div>
+</div>
+<div class="row key">
+  <div class="col-lg-2">
+    <p>> 5 mins:</p>
+  </div>
+  <div class="col-lg-2 more_than_five">
+
+  </div>
+</div>
+<div class="row key">
+  <div class="col-lg-2">
+    <p>Authorised</p>
+  </div>
+  <div class="col-lg-2 auth">
+
+  </div>
+</div>
+<div class="row key">
+  <div class="col-lg-2">
+    <p>Unauthorised</p>
+  </div>
+  <div class="col-lg-2 unauth">
+
+  </div>
+</div>
+
+  <div class="actions-list">
+    <%= link_to "Edit Student", edit_student_path, class: "btn btn-primary" %>
+    <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
   </div>
 </div>
