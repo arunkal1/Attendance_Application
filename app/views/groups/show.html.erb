@@ -7,7 +7,7 @@
 <!-- JS code to check if DataTables applied, if not then apply it to the students list. -->
 <script type="text/javascript">
   $(document).on('turbolinks:load', function() {
-      if (!document.getElementById("studentslist_wrapper")) {
+      if (!document.getElementById("group-attendance_wrapper")) {
         $('#group-attendance').DataTable();
       }
   });
@@ -33,9 +33,10 @@
 </div>
 
   <div class="container">
-    <table id="group-attendance" class="table">
+    <table id="group-attendance" class="table table-bordered table-hover">
       <thead>
         <tr>
+          <th scope="col">#</th>
           <th scope="col">Student</th>
           <th scope="col">On Time</th>
           <th scope="col">< 5 mins</th>
@@ -88,8 +89,8 @@
           percArray[4] = ((att_array[4] / sum) * 100).round 2
 
           %>
-
-          <td><%= student.name %></td>
+          <td><b><%= student.id %></b></td>
+          <td><%= link_to "#{student.name.titlecase}", student %></td>
           <td><%= percArray[0] %>%</td>
           <td><%= percArray[1] %>%</td>
           <td><%= percArray[2] %>%</td>
@@ -103,5 +104,6 @@
     </table>
 
   </div>
+
 
 </div>
