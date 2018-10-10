@@ -18,11 +18,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" onkeyup=""integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+
   </head>
 
   <body>
     <% $groups = Group.all %>
     <%= render "layouts/navbar.html.erb" %>
     <%= yield %>
+    
+    <%= render "layouts/footer.html.erb" %>
   </body>
 </html>
