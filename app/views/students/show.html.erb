@@ -15,11 +15,12 @@
       <h1>Stream: <%=@group.stream.upcase %></h1>
     </div>
   </div>
-  <div class="show-attendance">
-
+  <div class="row show-attendance">
   </div>
-  <div class="actions-list">
-    <%= link_to "Edit Student", edit_student_path, class: "btn btn-primary" %>
-    <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
+  <div class="row">
+    <div class="actions-list">
+      <%= link_to "Edit Student", edit_student_path, class: "btn btn-primary" %>
+      <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
+    </div>
   </div>
 </div>
