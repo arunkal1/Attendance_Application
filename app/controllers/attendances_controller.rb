@@ -29,7 +29,7 @@ class AttendancesController < ApplicationController
   def create
     @attendance = Attendance.new attendance_params
 
-    # puts "ATTENADANCE: #{@attendance.att_status}"
+    puts "ATTENADANCE: #{@attendance.att_status}"
 
     @attendance.save
   end
@@ -41,6 +41,6 @@ class AttendancesController < ApplicationController
   end
 
   def attendance_params
-    params.require(:attendance).permit(:att_status, :student_id)
+    attendance_params = params.require(:attendance).permit(:att_status, :student_id)
   end
 end

@@ -3,10 +3,11 @@
   <%= @group.name %> <br>
   <!-- @group.students.each do |student| %> -->
     <%= @group.students[1].name %>
-    <%= g.fields_for :attendance do |builder| %>
-      <%= render 'layouts/attend_fields', a: builder %>
+    <!-- g.fields_for :attendances do |builder| %> -->
+    <%= g.text_field :att_status %>
+       <!-- render 'layouts/attend_fields', a: builder %> -->
    <!-- end %> -->
-  <% end %>
+   <!-- end %> -->
 
   <div class="actions">
     <%= g.submit %>
