@@ -20,33 +20,31 @@
   <br>
   <div class="field">
     <%= g.label :Stream %>
-    <div class="descInput">
+    <div class="nameInput">
       <%= g.text_field :stream %>
     </div>
   </div>
   <div class="field">
     <%= g.label :Start_Date %>
-    <div class="descInput">
+    <div class="nameInput">
       <%= g.text_field :startdate %>
     </div>
   </div>
   <div class="field">
     <%= g.label :End_Date %>
-    <div class="descInput">
+    <div class="nameInput">
       <%= g.text_field :enddate %>
     </div>
   </div>
   <div class="field">
     <%= g.label :Active %>
     <div class="select">
-      <%= g.select(:active, Group::ACTIVE_OPTION)%>
+    <%= g.check_box :active %>
     </div>
   </div>
   <br>
-  <div class="field">
-    <div class="button">
+  <div class="action">
       <%= g.submit  %>
-    </div>
   </div>
 </div>
 </center>
