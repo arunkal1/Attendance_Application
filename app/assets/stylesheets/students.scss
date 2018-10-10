@@ -18,10 +18,25 @@
   color: darkgrey;
 }
 
+.show-row {
+  margin-bottom: 25px;
+}
+
 .show-containers {
   margin: auto;
   margin-top: 50px;
-  height: 200px;
+  height: 220px;
+  display: block;
+}
+
+.show-containers table {
+  float: right;
+}
+
+.show-containers table td {
+  padding: 1px;
+  padding-left: 15px;
+  // border: 1px solid black;
 }
 
 .show-profile {
@@ -47,6 +62,15 @@
 @media screen and (max-width: 770px) {
   h1 {
     font-size: 30px;
+  }
+
+  .show-containers{
+    text-align: center;
+  }
+
+  .show-containers table {
+    float: none;
+    margin: auto;
   }
 }
 
