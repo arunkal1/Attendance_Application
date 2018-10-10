@@ -29,6 +29,34 @@ class Group < ApplicationRecord
 
    group
 end
+ def self.sort_by_active
+
+   conn = self.open_conection
+
+   sql = "SELECT * FROM groups ORDER BY active DESC"
+
+   result = conn.exec(sql)
+
+   group = result.map do |group|
+     self.hydrate group
+   end
+
+   group
+end
+ def self.sort_by_id
+
+   conn = self.open_conection
+
+   sql = "SELECT * FROM groups ORDER BY id"
+
+   result = conn.exec(sql)
+
+   group = result.map do |group|
+     self.hydrate group
+   end
+
+   group
+end
 
 def self.hydrate group_data
 

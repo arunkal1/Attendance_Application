@@ -1,8 +1,9 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = Group.all
+    @groups = Group.sort_by_id
     @groups1 = Group.sort_by_name
+    @groups2 = Group.sort_by_active
 
   end
 
@@ -49,5 +50,6 @@ class GroupsController < ApplicationController
   def group_params
     group_params = params.require(:group).permit(:name,:stream,:startdate,:enddate,:active)
   end
+
 
 end
