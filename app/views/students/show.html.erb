@@ -87,12 +87,12 @@
   <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Week</th>
-      <th scope="col">Monday</th>
-      <th scope="col">Tuesday</th>
-      <th scope="col">Wednesday</th>
-      <th scope="col">Thursday</th>
-      <th scope="col">Friday</th>
+      <th scope="col" class="weekSize">Week</th>
+      <th scope="col" class="otherSize">Monday</th>
+      <th scope="col" class="otherSize">Tuesday</th>
+      <th scope="col" class="otherSize">Wednesday</th>
+      <th scope="col" class="otherSize">Thursday</th>
+      <th scope="col" class="otherSize">Friday</th>
     </tr>
   </thead>
   <tbody>
@@ -115,7 +115,22 @@
           <% if @student.attendances[count + j].nil? %>
             <td></td>
           <% else %>
-            <td><%= @student.attendances[count + j].att_status %></td>
+            <%
+            className = ""
+            case @student.attendances[count + j].att_status
+            when 1
+              className = "on_time"
+            when 2
+              className = "less_than_five"
+            when 3
+              className = "more_than_five"
+            when 4
+              className = "auth"
+            when 5
+              className = "unauth"
+            end
+            %>
+            <td class="<%= className %>"></td>
           <% end %>
         <% end %>
 
@@ -125,10 +140,6 @@
 </table>
 
 <!-- END OF CALENDAR ------------------>
-
-  <div class="show-attendance">
-
-  </div>
   <div class="actions-list">
     <%= link_to "Edit Student", edit_student_path, class: "btn btn-primary" %>
     <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
