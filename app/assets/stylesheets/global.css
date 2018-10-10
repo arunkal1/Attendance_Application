@@ -80,3 +80,11 @@ h1 {
   padding-top: 20px;
   padding-bottom: 15px;
 }
+
+.text-active {
+  text-shadow: 2px 2px 10px green;
+}
+
+.text-inactive {
+  text-shadow: 2px 2px 10px red;
+}
