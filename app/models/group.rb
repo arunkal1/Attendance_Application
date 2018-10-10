@@ -72,4 +72,8 @@ def self.hydrate group_data
   group
 end
 
+def capitalize_name
+  self.name.capitalize!
+end
+
 end

@@ -21,6 +21,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new group_params
+    @group.capitalize_name
     respond_to do |format|
       if @group.save
         format.html{redirect_to @group, notice: "#{@group.name} was created"}
@@ -32,6 +33,7 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find params[:id]
+    @group.capitalize_name
     respond_to do |format|
       if @group.update group_params
         format.html{redirect_to @group, notice: "#{@group.name} was created"}
