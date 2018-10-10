@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="list-h1" >Students</h1>
-  <table class="list-table table table-hover">
+  <table id="studentslist" class="list-table table table-hover">
     <thead>
       <tr>
         <th scope"col">#</th>
@@ -31,7 +31,7 @@
       <br>
     </tbody>
   </table>
-  <div class="new_student">
+  <div class="new_student actions-list">
     <%= link_to 'Create a new student', new_student_path, class: "btn btn-primary" %>
   </div>
 </div>
