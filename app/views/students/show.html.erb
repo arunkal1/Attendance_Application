@@ -105,36 +105,53 @@
     <!-- Will PUT weekend dates in weekdays if weekends are included in attendances -->
     <%# TODO: FIX ABOVE %>
 
-    <% count = -5 %>
+    <% count = 0 %>
     <% (1..cWeeks).each do |i| %>
-    <% count = count + 5 %>
       <tr>
         <th scope="row"><%= i %></th>
 
-        <% (0..4).each do |j| %>
+        <% (0..6).each do |j| %>
+          <!-- Confirm that the attendance exists -->
+          <!-- If it doesn't, leave the calendar space blank if it is a weekday -->
           <% if @student.attendances[count + j].nil? %>
-            <td></td>
+
+            <!-- Stops weekend cells printing on nil attendance -->
+            <% if j.between?(0, 4) %>
+              <!-- DO NOT DELETE ME -->
+              <td></td>
+              <!-- DO NOT DELETE ME -->
+            <% end %>
+
           <% else %>
-            <%
-            className = ""
-            case @student.attendances[count + j].att_status
-            when 1
-              className = "on_time"
-            when 2
-              className = "less_than_five"
-            when 3
-              className = "more_than_five"
-            when 4
-              className = "auth"
-            when 5
-              className = "unauth"
-            end
-            %>
-            <td class="<%= className %>"></td>
+            <!-- Confirm that the attendance date is a weekday -->
+            <!-- If it is a weekday do this -->
+            <% if @student.attendances[count + j].date.on_weekday? %>
+
+              <%
+              className = ""
+              case @student.attendances[count + j].att_status
+              when 1
+                className = "on_time"
+              when 2
+                className = "less_than_five"
+              when 3
+                className = "more_than_five"
+              when 4
+                className = "auth"
+              when 5
+                className = "unauth"
+              end
+              %>
+
+              <td class="<%= className %>"></td>
+            <% else %>
+              <!-- What? -->
+            <% end %>
           <% end %>
         <% end %>
 
       </tr>
+      <% count = count + 7 %>
     <% end %>
   </tbody>
 </table>
