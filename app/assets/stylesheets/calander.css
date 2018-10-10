@@ -1,0 +1,23 @@
+.on_time {
+  background-color: green;
+}
+
+.less_than_five {
+  background-color: blue;
+}
+
+.more_than_five {
+  background-color: yellow;
+}
+
+.auth {
+  background-color: purple;
+}
+
+.unauth {
+  background-color: red;
+}
+
+.key{
+  padding-top: 10px;
+}
