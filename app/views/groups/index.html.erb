@@ -1,27 +1,33 @@
 <h1>Groups</h1>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" name="button" id="sort_name" class="btn btn-secondary" >Sort By Name</button>
+      <button type="button" name="button" id="sort_id" class="btn btn-secondary">Sort By Id</button>
+      <button type="button" name="button" id="sort_active" class="btn btn-secondary">Sort By Active</button>
+      
+      <p class="key"> Inactive</p>
+      <%= image_tag("square_block_red.jpg", size: "20x20", alt: "Edit Entry", class: "key") %>
 
-
-<button type="button" name="button" id="sort_name" class="btn btn-secondary" >Sort By Name</button>
-<button type="button" name="button" id="sort_id" class="btn btn-secondary">Sort By Id</button>
-<button type="button" name="button" id="sort_active" class="btn btn-secondary">Sort By Active</button>
+      <p class="key"> Active</p>
+      <%= image_tag("square_block.png", size: "20x20", alt: "Edit Entry", class: "key") %>
+    </div>
+  </div>
+</div>
 
 <div class="" id="order_id">
-  <div class="test">
-
-  </div>
   <div class="container">
     <div class="row group_info">
       <% @groups.each do |group| %>
       <div class="col-md-4">
-
         <div class="group-card <%= group.active ? "active" : "inactive" %>">
           <h2><%= link_to "#{group.name}", group_path(group) %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
             <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
             <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
-            <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li>
+            <!-- <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li> -->
           </ul>
         </div>
       </div>
@@ -31,48 +37,44 @@
 </div>
 
 <div class="" id="order_name">
-
   <div class="container">
     <div class="row">
       <% @groups1.each do |group| %>
       <div class="col-md-4">
-
         <div class="group-card <%= group.active ? "active" : "inactive" %>">
           <h2><%= link_to "#{group.name}", group_path(group) %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
             <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
             <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
-            <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li>
+            <!-- <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li> -->
           </ul>
         </div>
       </div>
       <% end %>
     </div>
   </div>
-
 </div>
-<div class="" id="order_active">
 
+
+<div class="" id="order_active">
   <div class="container">
     <div class="row">
       <% @groups2.each do |group| %>
       <div class="col-md-4">
-
         <div class="group-card <%= group.active ? "active" : "inactive" %>">
           <h2><%= link_to "#{group.name}", group_path(group) %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
             <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
             <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
-            <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li>
+            <!-- <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li> -->
           </ul>
         </div>
       </div>
       <% end %>
     </div>
   </div>
-
 </div>
 
 <script type="text/javascript">
