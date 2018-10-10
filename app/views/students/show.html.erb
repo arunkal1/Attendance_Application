@@ -110,34 +110,13 @@
     <% count = count + 5 %>
       <tr>
         <th scope="row"><%= i %></th>
-        <% if @student.attendances[count].nil? %>
-        <td></td>
-        <% else %>
-        <td><%= @student.attendances[count].att_status %></td>
-        <% end %>
-
-        <% if @student.attendances[count + 1].nil? %>
-        <td></td>
-        <% else %>
-        <td><%= @student.attendances[count + 1].att_status %></td>
-        <% end %>
-
-        <% if @student.attendances[count + 2].nil? %>
-        <td></td>
-        <% else %>
-        <td><%= @student.attendances[count + 2].att_status %></td>
-        <% end %>
-
-        <% if @student.attendances[count + 3].nil? %>
-        <td></td>
-        <% else %>
-        <td><%= @student.attendances[count + 3].att_status %></td>
-        <% end %>
-
-        <% if @student.attendances[count + 4].nil? %>
-        <td></td>
-        <% else %>
-        <td><%= @student.attendances[count + 4].att_status %></td>
+        
+        <% (0..4).each do |j| %>
+          <% if @student.attendances[count + j].nil? %>
+            <td></td>
+          <% else %>
+            <td><%= @student.attendances[count + j].att_status %></td>
+          <% end %>
         <% end %>
 
       </tr>
