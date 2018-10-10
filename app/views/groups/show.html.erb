@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-md-12 group-container">
-      <h1><%= @group.name.to_s.capitalize %></h1>
+      <h1 class="text-left"><%= @group.name.to_s.capitalize %></h1>
       <ul>
         <li>Start date: <%= @group.startdate %></li>
         <li>End date: <%= @group.enddate %></li>
@@ -13,8 +13,8 @@
       <%= link_to "Delete Group", @group, method: :delete, class: "btn btn-danger"%>
     </div>
   </div>
-</div>
-  <h1>Attendance for: <%= @group.name %></h1>
+
+  <h1>Attendance:</h1>
 
   <table class="table">
     <thead>
@@ -84,5 +84,6 @@
 
     </tbody>
   </table>
+
 
 </div>
