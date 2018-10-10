@@ -93,22 +93,20 @@
       <th scope="col">Wednesday</th>
       <th scope="col">Thursday</th>
       <th scope="col">Friday</th>
+      <th scope="col">Saturday</th>
+      <th scope="col">Sunday</th>
     </tr>
   </thead>
   <tbody>
     <% @group.startdate %>
     <% @group.enddate %>
     <% cDays = (@group.enddate - @group.startdate).to_f %>
-    <h3>Total Weeks: <%= cWeeks = (cDays / 7).ceil %></h3> 
+    <h3>Total Weeks: <%= cWeeks = (cDays / 7).ceil %></h3>
 
     <% (1..cWeeks).each do |i| %>
       <tr>
         <th scope="row"><%= i %></th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
       </tr>
     <% end %>
   </tbody>
