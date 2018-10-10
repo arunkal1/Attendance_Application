@@ -23,7 +23,7 @@
       <% @students.each do |student| %>
         <tr>
           <th scope="row"><%= student.id %></th>
-          <td><%= link_to "#{student.name.capitalize}", student %></td>
+          <td><%= link_to "#{student.name}", student %></td>
           <td>
             <%if student.active == true %>
               <span class="badge badge-success"> Active </span>
