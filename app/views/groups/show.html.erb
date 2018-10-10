@@ -10,8 +10,9 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md-12 group-container">
-      <h1><%= @group.name.to_s.capitalize %></h1>
+    <div class="col-md-12 group-container attend_group">
+      <center>
+      <h1>Attendance for: <%= @group.name %></h1>
       <ul>
         <li>Start date: <%= @group.startdate %></li>
         <li>End date: <%= @group.enddate %></li>
@@ -20,10 +21,10 @@
       </ul>
       <%= link_to "Edit Group", edit_group_path, class: "btn btn-primary"%>
       <%= link_to "Delete Group", @group, method: :delete, class: "btn btn-danger"%>
+    </center>
     </div>
   </div>
 </div>
-  <h1>Attendance for: <%= @group.name %></h1>
 
   <div class="container">
     <table id="group-attendance" class="table">
