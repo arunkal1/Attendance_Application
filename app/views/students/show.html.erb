@@ -2,21 +2,21 @@
   <div class="row show-row">
     <div class="col-md-6 show-containers">
       <%= image_tag("profile_placeholder" , size: "200x200", class: "show-profile") %>
+      <%if @student.active == true %>
+        <h1><span class="badge badge-success show-active">Active</span></h1>
+        <%else%>
+        <h1><span class="badge badge-secondary show-active">Inactive</span></h1>
+        <%end%>
     </div>
     <div class="col-md-6 show-containers">
       <table>
         <tr>
-          <td><h1><%= @student.name.capitalize %></h1></td>
-          <td><%if @student.active == true %>
-            <h1><span class="badge badge-success">Active</span></h1>
-            <%else%>
-            <h1><span class="badge badge-secondary">Inactive</span></h1>
-            <%end%>
-          </td>
+          <td><h1>Name</h1></td>
+          <td><h1><%= @student.name.titlecase %></h1></td>
         </tr>
         <tr>
           <td><h1>Group</h1></td>
-          <td><h1><span class="badge badge-info"><%= @group.name.upcase %></span></h1></td>
+          <td><h1><%= link_to "#{@group.name.upcase}", @group, class: "badge badge-info" %></h1></td>
         </tr>
         <tr>
           <td><h1>Stream</h1></td>
