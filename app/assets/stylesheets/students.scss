@@ -2,24 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  background-color: #fafafa;
-}
-
 .list-h1 {
   text-align: center;
   margin-top: 15px; // Margin between heading and navbar.
 }
 
 .list-table {
-  margin-top: 25px;
 }
 
-.active {
+.active1 {
   color: green;
 }
 
-.inactive {
+.inactive1 {
   color: darkgrey;
 }
 
@@ -40,5 +35,23 @@ body {
 }
 
 .actions-list {
-  margin: 15px 10px;
+  margin: 20px 0;
+}
+
+.page-item {
+  box-shadow: none;
+  z-index: 0;
+}
+
+// Media query for Student details on show view.
+@media screen and (max-width: 770px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  h1 {
+    font-size: 25px;
+  }
 }

@@ -1,6 +1,15 @@
+<!-- JS code to check if DataTables applied, if not then apply it to the students list. -->
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+      if (!document.getElementById("studentslist_wrapper")) {
+        $('#studentslist').DataTable();
+      }
+  });
+</script>
+
 <div class="container">
   <h1 class="list-h1" >Students</h1>
-  <table class="list-table table table-hover">
+  <table id="studentslist" class="list-table table table-hover">
     <thead>
       <tr>
         <th scope"col">#</th>
@@ -17,9 +26,9 @@
           <td><%= link_to "#{student.name.capitalize}", student %></td>
           <td>
             <%if student.active == true %>
-              <span class="active"> Active </span>
+              <span class="active1"> Active </span>
             <% else %>
-              <span class="inactive"> Inactive </span>
+              <span class="inactive1"> Inactive </span>
             <% end %>
           </td>
           <td><%= @group.find(student.group_id).stream.upcase%></td>
@@ -31,7 +40,7 @@
       <br>
     </tbody>
   </table>
-  <div class="new_student">
+  <div class="new_student actions-list">
     <%= link_to 'Create a new student', new_student_path, class: "btn btn-primary" %>
   </div>
 </div>
