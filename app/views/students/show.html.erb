@@ -93,8 +93,6 @@
       <th scope="col">Wednesday</th>
       <th scope="col">Thursday</th>
       <th scope="col">Friday</th>
-      <th scope="col">Saturday</th>
-      <th scope="col">Sunday</th>
     </tr>
   </thead>
   <tbody>
@@ -103,9 +101,13 @@
     <% cDays = (@group.enddate - @group.startdate).to_f %>
     <h3>Total Weeks: <%= cWeeks = (cDays / 7).ceil %></h3>
 
-    <% count = -7 %>
+    <!-- Polulates calendar with attendance types (1 - 5) -->
+    <!-- Will PUT weekend dates in weekdays if weekends are included in attendances -->
+    <%# TODO: FIX ABOVE %>
+
+    <% count = -5 %>
     <% (1..cWeeks).each do |i| %>
-    <% count = count + 7 %>
+    <% count = count + 5 %>
       <tr>
         <th scope="row"><%= i %></th>
         <% if @student.attendances[count].nil? %>
@@ -137,20 +139,6 @@
         <% else %>
         <td><%= @student.attendances[count + 4].att_status %></td>
         <% end %>
-
-        <% if @student.attendances[count + 5].nil? %>
-        <td></td>
-        <% else %>
-        <td><%= @student.attendances[count + 5].att_status %></td>
-        <% end %>
-
-        <% if @student.attendances[count + 6].nil? %>
-        <td></td>
-        <% else %>
-        <td><%= @student.attendances[count + 6].att_status %></td>
-        <% end %>
-
-      
 
       </tr>
     <% end %>
