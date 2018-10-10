@@ -27,13 +27,13 @@
   <div class="field">
     <%= g.label :Start_Date %>
     <div class="nameInput">
-      <%= g.date_field :startdate %>
+      <%= g.date_field :startdate, :order => [:day, :month, :year]%>
     </div>
   </div>
   <div class="field">
     <%= g.label :End_Date %>
     <div class="nameInput">
-      <%= g.date_field :enddate %>
+      <%= g.date_field :enddate, :order => [:day, :month, :year] %>
     </div>
   </div>
   <div class="field">
