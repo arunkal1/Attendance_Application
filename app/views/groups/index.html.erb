@@ -25,8 +25,9 @@
     <div class="row group_info">
       <% @groups.each do |group| %>
       <div class="col-md-4 card-group">
+        <%= link_to group_path(group), class: "link_style" do %>
         <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
-          <h2><%= link_to "#{group.name}", group_path(group) %></h2>
+          <h2><%= group.name %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
             <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
@@ -34,6 +35,7 @@
             <!-- <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li> -->
           </ul>
         </div>
+        <% end %>
       </div>
       <% end %>
     </div>

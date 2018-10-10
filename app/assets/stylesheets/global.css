@@ -91,3 +91,8 @@ h1 {
 .attend_group li{
   list-style: none;
 }
+
+.link_style {
+  text-decoration: none !important;
+  color: black;
+}
