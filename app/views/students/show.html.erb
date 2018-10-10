@@ -93,22 +93,65 @@
       <th scope="col">Wednesday</th>
       <th scope="col">Thursday</th>
       <th scope="col">Friday</th>
+      <th scope="col">Saturday</th>
+      <th scope="col">Sunday</th>
     </tr>
   </thead>
   <tbody>
     <% @group.startdate %>
     <% @group.enddate %>
     <% cDays = (@group.enddate - @group.startdate).to_f %>
-    <h3>Total Weeks: <%= cWeeks = (cDays / 7).ceil %></h3> 
+    <h3>Total Weeks: <%= cWeeks = (cDays / 7).ceil %></h3>
 
+    <% count = -7 %>
     <% (1..cWeeks).each do |i| %>
+    <% count = count + 7 %>
       <tr>
         <th scope="row"><%= i %></th>
+        <% if @student.attendances[count].nil? %>
         <td></td>
+        <% else %>
+        <td><%= @student.attendances[count].att_status %></td>
+        <% end %>
+
+        <% if @student.attendances[count + 1].nil? %>
         <td></td>
+        <% else %>
+        <td><%= @student.attendances[count + 1].att_status %></td>
+        <% end %>
+
+        <% if @student.attendances[count + 2].nil? %>
         <td></td>
+        <% else %>
+        <td><%= @student.attendances[count + 2].att_status %></td>
+        <% end %>
+
+        <% if @student.attendances[count + 3].nil? %>
         <td></td>
+        <% else %>
+        <td><%= @student.attendances[count + 3].att_status %></td>
+        <% end %>
+
+        <% if @student.attendances[count + 4].nil? %>
         <td></td>
+        <% else %>
+        <td><%= @student.attendances[count + 4].att_status %></td>
+        <% end %>
+
+        <% if @student.attendances[count + 5].nil? %>
+        <td></td>
+        <% else %>
+        <td><%= @student.attendances[count + 5].att_status %></td>
+        <% end %>
+
+        <% if @student.attendances[count + 6].nil? %>
+        <td></td>
+        <% else %>
+        <td><%= @student.attendances[count + 6].att_status %></td>
+        <% end %>
+
+      
+
       </tr>
     <% end %>
   </tbody>
