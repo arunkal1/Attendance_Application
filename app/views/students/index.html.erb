@@ -32,7 +32,8 @@
             <% end %>
           </td>
           <td><span class="badge badge-info"><%= @group.find(student.group_id).stream.upcase%></span></td>
-          <td><span class="badge badge-info"><%= @group.find(student.group_id).name.upcase %></span></td>
+          <td>
+          <%= link_to "#{@group.find(student.group_id).name.upcase}", @group.find(student.group_id), class: "badge badge-info" %></td>
         </tr>
       <% end %>
 
