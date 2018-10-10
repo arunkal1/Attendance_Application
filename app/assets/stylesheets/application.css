@@ -37,3 +37,8 @@
  .field{
    padding: 5px;
  }
+
+.dropdown-menu{
+  height: 60vh;
+  overflow: scroll;
+}

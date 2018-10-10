@@ -1,5 +1,16 @@
 <!-- DataTables JS file in public/javascript-->
-<script src="/javascripts/studentslist.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+
+<!-- JS code to check if DataTables applied, if not then apply it to the students list. -->
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+      if (!document.getElementById("studentslist_wrapper")) {
+        $('#studentslist').DataTable();
+      }
+  });
+</script>
+
 <div class="container">
   <h1 class="list-h1" >Students</h1>
   <table id="studentslist" class="list-table table table-hover">
@@ -19,9 +30,9 @@
           <td><%= link_to "#{student.name.capitalize}", student %></td>
           <td>
             <%if student.active == true %>
-              <span class="active"> Active </span>
+              <span class="active1"> Active </span>
             <% else %>
-              <span class="inactive"> Inactive </span>
+              <span class="inactive1"> Inactive </span>
             <% end %>
           </td>
           <td><%= @group.find(student.group_id).stream.upcase%></td>

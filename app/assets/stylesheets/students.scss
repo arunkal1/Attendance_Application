@@ -14,11 +14,11 @@ body {
 .list-table {
 }
 
-.active {
+.active1 {
   color: green;
 }
 
-.inactive {
+.inactive1 {
   color: darkgrey;
 }
 
@@ -40,4 +40,9 @@ body {
 
 .actions-list {
   margin: 20px 0;
+}
+
+.page-item {
+  box-shadow: none;
+  z-index: 0;
 }
