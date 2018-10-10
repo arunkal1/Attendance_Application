@@ -27,9 +27,10 @@
 </div>
 
   <div class="container">
-    <table id="group-attendance" class="table">
+    <table id="group-attendance" class="table table-bordered table-hover">
       <thead>
         <tr>
+          <th scope="col">#</th>
           <th scope="col">Student</th>
           <th scope="col">On Time</th>
           <th scope="col">< 5 mins</th>
@@ -82,8 +83,8 @@
           percArray[4] = ((att_array[4] / sum) * 100).round 2
 
           %>
-
-          <td><%= student.name %></td>
+          <td><b><%= student.id %></b></td>
+          <td><%= link_to "#{student.name}", student %></td>
           <td><%= percArray[0] %>%</td>
           <td><%= percArray[1] %>%</td>
           <td><%= percArray[2] %>%</td>
