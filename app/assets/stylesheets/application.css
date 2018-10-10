@@ -19,3 +19,21 @@
    width: 70%;
    padding: 1%;
  }
+
+ .nameInput input {
+   width: 40%;
+ }
+
+ .select select {
+   width: 40%;
+ }
+
+ .action input{
+   width: 40%;
+   border-radius: 20px;
+   background-color: #4db8ff;
+ }
+
+ .field{
+   padding: 5px;
+ }

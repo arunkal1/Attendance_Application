@@ -23,6 +23,10 @@
         <%= p.select(:group_id, Student::COURSE_LIST) %>
       </div>
     </div>
+    <div class="field">
+      <%= p.label :active %>
+      <%= p.check_box :active %>
+    </div>
     <br>
     <div class="action">
       <%= p.submit "Submit" %>

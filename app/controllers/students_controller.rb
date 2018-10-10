@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+
   def index
     @students  = Student.all
     @group = Group.all
@@ -18,7 +19,7 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new
+    @student = Student.new student_params
       respond_to do |format|
         if @student.save
           format.html{redirect_to @student, notice: "#{@student.name} was created"}
@@ -30,13 +31,22 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find params[:id]
+    respond_to do |format|
+      if @student.update student_params
+        format.html{redirect_to @student, notice: "'#{@student.name}' was updated"}
+      else
+        format.html{render :edit}
+      end
+    end
   end
 
   def destroy
     @student = Student.find params[:id]
+    @student.destroy
+    redirect_to students_path
   end
 
   def student_params
-    student_params = params.require(:student).permit(:name, :group_id)
+    student_params = params.require(:student).permit(:name, :active, :group_id)
   end
 end
