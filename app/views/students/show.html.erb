@@ -82,8 +82,6 @@
 
 <!-- CALENDAR ----------------->
 
-  <h1>Calendar</h1>
-
   <table class="table table-bordered">
   <thead>
     <tr>
@@ -106,11 +104,11 @@
     <%# TODO: FIX ABOVE %>
 
     <% count = -5 %>
+    <% week_date = @group.startdate %>
     <% (1..cWeeks).each do |i| %>
     <% count = count + 5 %>
       <tr>
-        <th scope="row"><%= i %></th>
-
+        <th scope="row" class="week"><div>Week <%= i %></div> <div><%= week_date.strftime('%d/%m') %></div></th>
         <% (0..4).each do |j| %>
           <% if @student.attendances[count + j].nil? %>
             <td></td>
@@ -133,7 +131,7 @@
             <td class="<%= className %>"></td>
           <% end %>
         <% end %>
-
+        <% week_date += 7 %>
       </tr>
     <% end %>
   </tbody>
