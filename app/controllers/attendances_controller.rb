@@ -10,6 +10,7 @@ class AttendancesController < ApplicationController
 
   def new
     # @group = Group.find 1
+    $id = params[:group]
     @group = Group.find $id
     $date = params[:date]
     puts "date: #{$date}"
