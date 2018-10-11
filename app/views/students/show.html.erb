@@ -91,7 +91,7 @@
     </tbody>
   </table>
 <!-- INDIVIDUAL ATTENDANCE END -->
-
+<br>
 <!-- CALENDAR ----------------->
 
   <table class="table table-bordered">
@@ -106,37 +106,54 @@
     </tr>
   </thead>
   <tbody>
-    <% @group.startdate %>
-    <% @group.enddate %>
-    <% cDays = (@group.enddate - @group.startdate).to_f %>
-    <h3>Total Weeks: <%= cWeeks = (cDays / 7).ceil %></h3>
 
-    <!-- Polulates calendar with attendance types (1 - 5) -->
-    <!-- Will PUT weekend dates in weekdays if weekends are included in attendances -->
-    <%# TODO: FIX ABOVE %>
+    <!-- Does the course start on a Monday? -->
+    <% week_date = @group.startdate %>
+    <% @student.attendances.order('date').each do |att|
+      puts att.date
+    end %>
+    <% puts week_date %>
+    <% puts week_date.monday? %>
+
+    <!-- If not, count backwards to the nearest Monday and start the calendar from there -->
+    <!-- date.wday gives an integer value 0-6 depending on the day (Sunday=0, Monday=1 etc...) -->
+    <% if week_date.wday != 1
+      week_date -= (week_date.wday - 1)
+
+      puts week_date
+      puts week_date.monday?
+    end %>
+
+    <!-- Calculate total number of weeks in course using week_date -->
+    <% cDays = (@group.enddate - week_date).to_f %>
+    <% cWeeks = (cDays / 7).ceil %>
 
     <% count = 0 %>
-    <% week_date = @group.startdate %>
     <% (1..cWeeks).each do |i| %>
       <tr>
         <th scope="row" class="week"><div>Week <%= i %></div> <div><%= week_date.strftime('%d/%m') %></div></th>
+
+        <!-- Iterate through each week and fill boxes accordingly -->
+        <!-- Week start (0)=Monday -->
         <% (0..6).each do |j| %>
+
           <!-- Confirm that the attendance exists -->
           <!-- If it doesn't, leave the calendar space blank if it is a weekday -->
           <% if @student.attendances[count + j].nil? %>
 
-            <!-- Stops weekend cells printing on nil attendance -->
+            <!-- Stops weekend cells appearing on nil attendance -->
             <% if j.between?(0, 4) %>
               <!-- DO NOT DELETE ME -->
+              <!-- I ensure that any empty entries are left blank -->
               <td></td>
               <!-- DO NOT DELETE ME -->
             <% end %>
 
           <% else %>
             <!-- Confirm that the attendance date is a weekday -->
-            <!-- If it is a weekday do this -->
             <% if @student.attendances[count + j].date.on_weekday? %>
 
+              <!-- If it is a weekday attach the relevant CSS class depending on the attendance att_status -->
               <%
               className = ""
               case @student.attendances[count + j].att_status
@@ -154,8 +171,7 @@
               %>
 
               <td class="<%= className %>"></td>
-            <% else %>
-              <!-- What? -->
+
             <% end %>
           <% end %>
         <% end %>
