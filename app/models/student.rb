@@ -1,8 +1,12 @@
 class Student < ApplicationRecord
+  # attr_accessible :name, :attendance_attributes
   belongs_to :group
   has_many :attendances, :dependent => :delete_all
 
- validates :name, presence: { message: "must be given" }
+  accepts_nested_attributes_for :attendances, allow_destroy: true
+
+
+ validates :name, presence: { message: "name must be given" }
 
   # Function used by students controller will return a list of courses. This is passed to the students form.
   def self.course_list_assign
@@ -16,5 +20,8 @@ class Student < ApplicationRecord
 
     course_list = courses
   end
+
+
+  COURSE_LIST = course_list_assign
 
 end

@@ -22,6 +22,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new student_params
+    @course_list = Student.course_list_assign
       respond_to do |format|
         if @student.save
           format.html{redirect_to @student, notice: "#{@student.name} was created"}
@@ -33,6 +34,7 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find params[:id]
+    @course_list = Student.course_list_assign
     respond_to do |format|
       if @student.update student_params
         format.html{redirect_to @student, notice: "'#{@student.name}' was updated"}
