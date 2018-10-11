@@ -11,7 +11,7 @@ class Group < ApplicationRecord
   validates :enddate, presence: { message: "end date must be given" }
   validates :enddate, presence: true, date: { after_or_equal_to: :startdate, message: "the end date given must be after the start date given"}
 
- ACTIVE_OPTION = active_option
+ # ACTIVE_OPTION = active_option
 
  def self.open_conection
    conn=PG.connect( dbname: 'attendance_application_development')

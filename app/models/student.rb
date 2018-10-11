@@ -22,6 +22,6 @@ class Student < ApplicationRecord
   end
 
 
-  COURSE_LIST = courses
+  COURSE_LIST = course_list_assign
 
 end
