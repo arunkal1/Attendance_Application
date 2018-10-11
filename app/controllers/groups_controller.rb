@@ -45,6 +45,9 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find params[:id]
+    @group.students.each do |student|
+      student.destroy
+    end
     @group.destroy
     redirect_to root_path
   end
