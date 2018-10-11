@@ -106,3 +106,18 @@ h1 {
 .notice {
   text-align: center;
 }
+
+.verticalLine {
+  border-left: 2px solid #FCFCFC;
+  margin-left: 5px;
+  padding-right: 10px;
+}
+
+.footer-link {
+  color: rgba(255,255,255,.5);
+}
+
+.footer-link:hover {
+  color: white;
+  text-decoration: none;
+}
