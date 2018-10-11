@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'groups#index'
+  get 'attendances/date'
   # get 'attendances/index'
   # get 'attendances/show'
   # get 'attendances/new'
