@@ -125,7 +125,6 @@
     <% cDays = (@group.enddate - week_date).to_f %>
     <% cWeeks = (cDays / 7).ceil %>
 
-    <% count = 0 %>
     <% cellDate = week_date %>
     <% puts @student.attendances.find_by(date: '2018/01/15').att_status %>
 
@@ -183,7 +182,6 @@
         <% end %>
         <% week_date += 7 %>
       </tr>
-      <% count = count + 7 %>
     <% end %>
   </tbody>
 </table>
