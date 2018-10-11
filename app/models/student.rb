@@ -2,7 +2,7 @@ class Student < ApplicationRecord
   belongs_to :group
   has_many :attendances
 
- validates :name, presence: { message: "name must be given" }
+ validates :name, presence: { message: "must be given" }
 
   courses = []
   groups = Group.all
