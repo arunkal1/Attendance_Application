@@ -3,17 +3,15 @@
   <% student_list = [] %>
   <% group = Group.all %>
 
-  <%= g.label :date %>
-  <%= g.text_field :date %> <br>
+  <%= g.hidden_field :date, value: $date %>
 
-  <% exists = false %>
+  <div class="attendance_form">
   <% group.each do |g| %>
     <% g.students.each do |student| %>
-
-      <% student.attendances.each do |a| %>
-        <% if a.date == :date  %>
-          <% exists = true %>
-        <% end %>
+      <% exists = false %>
+      <% example = student.attendances.where("date = '#{$date}'") %>
+      <% unless example.empty? %>
+        <% exists = true %>
       <% end %>
       <% unless exists == true %>
         <% output = "#{student.id} - #{student.name}" %>
@@ -33,6 +31,7 @@
        <!-- render 'layouts/attend_fields', a: builder %> -->
    <!-- end %> -->
    <!-- end %> -->
+ </div>
 
   <div class="actions">
     <%= g.submit %>

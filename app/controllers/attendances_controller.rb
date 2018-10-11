@@ -1,10 +1,9 @@
 class AttendancesController < ApplicationController
 
-  # before_action :set_student
-
   def index
     @groups=Group.all
   end
+
 
   def show
   end
@@ -12,7 +11,10 @@ class AttendancesController < ApplicationController
   def new
     # @group = Group.find 1
     @group = Group.find $id
-    
+    $date = params[:date]
+    puts "date: #{$date}"
+
+
     puts @group.name
 
     # @group.students.each do |student|
@@ -38,8 +40,9 @@ class AttendancesController < ApplicationController
     puts "ATTENADANCE: #{@attendance.att_status}"
     puts "ID: #{@attendance.student_id}"
 
+
     @attendance.save
-    redirect_to new_attendance_path
+    redirect_back fallback_location: root_path
   end
 
   def update
