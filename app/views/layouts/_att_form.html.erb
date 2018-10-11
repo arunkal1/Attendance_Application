@@ -23,12 +23,12 @@
 
   <%= @group.name %> <br>
     <!-- @group.students.each do |student| %> -->
-    <% student = @group.students[0] %>
+
     <%= g.select(:student_id, student_list) %>
     <!--  g.hidden_field :student_id, :value => student.id %> -->
      <!-- student.name %> <br> -->
     <!-- g.fields_for :attendances do |builder| %> -->
-    <%= g.text_field :att_status %> <br>
+    <%= g.collection_radio_buttons :att_status, (1..5).map{|n| [n, n]}, :first, :last, :class => "form-control" %>
        <!-- render 'layouts/attend_fields', a: builder %> -->
    <!-- end %> -->
    <!-- end %> -->
