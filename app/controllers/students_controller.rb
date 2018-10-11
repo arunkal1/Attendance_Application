@@ -12,10 +12,12 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    @course_list = Student.course_list_assign
   end
 
   def edit
     @student = Student.find params[:id]
+    @course_list = Student.course_list_assign
   end
 
   def create

@@ -2,35 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  background-color: #fafafa;
-}
-
 .list-h1 {
   text-align: center;
   margin-top: 15px; // Margin between heading and navbar.
 }
 
 .list-table {
-  margin-top: 25px;
 }
 
-.active {
-  color: green;
-}
-
-.inactive {
-  color: darkgrey;
+.show-row {
+  margin-bottom: 25px;
 }
 
 .show-containers {
-  margin: auto;
-  margin-top: 50px;
-  height: 200px;
+  margin: 50px auto;
+  height: 220px;
+  display: block;
 }
 
-.show-profile {
+.show-containers table {
+  float: right;
+}
+
+.show-containers table td {
+  padding: 1px;
+  padding-left: 15px;
+}
+
+.show-profile{
   border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.show-active {
+  float: center;
+  margin: auto;
 }
 
 .show-attendance {
@@ -40,5 +48,32 @@ body {
 }
 
 .actions-list {
-  margin: 15px 10px;
+  margin: 20px 0;
+}
+
+.page-item {
+  box-shadow: none;
+  z-index: 0;
+}
+
+// Media query for Student details on show view.
+@media screen and (max-width: 770px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .show-containers{
+    text-align: center;
+  }
+
+  .show-containers table {
+    float: none;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  h1 {
+    font-size: 25px;
+  }
 }

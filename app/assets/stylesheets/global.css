@@ -1,16 +1,18 @@
 body {
-  background: #fafafa;
+  background-color: #fafafa;
+  margin-bottom: 100px;
 }
 
 h1 {
+  margin-top: 15px;
   text-align: center;
 }
 
 .group-card {
   border: 2px #7C7C7C solid;
   border-radius: 5px;
-  padding: 20px;
   margin: 20px;
+  padding: 20px;
 }
 
 .group-card-info {
@@ -22,10 +24,85 @@ h1 {
   margin: 20px auto;
   width: 250px;
 }
+
 .group-container {
-  border: 2px #7C7C7C solid;
-  border-radius: 5px;
-  padding-top: 30px;
-  padding-bottom: 30px;
   margin-top: 30px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.group-container ul{
+  padding-left: 0;
+}
+
+.group-container ul li{
+  list-style: none;
+}
+
+.dropdown_links {
+  color: rgba(255,255,255,.5);
+  margin-left: 10%;
+}
+
+.dropdown_links:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-fixed {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+.active-group{
+  box-shadow: 10px 10px 10px green;
+}
+
+.active-group:hover ,
+.inactive-group:hover {
+  position: relative;
+  top: -10px;
+}
+
+.inactive-group{
+  box-shadow: 10px 10px 10px red;
+  opacity: 0.7;
+}
+
+.btn-new {
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+.key {
+  border-radius: 3px;
+  display: inline;
+  float: right;
+  margin: 5px;
+}
+
+.buttons-sort {
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
+.attend_group {
+  margin-bottom: 25px;
+}
+
+.attend_group li{
+  list-style: none;
+}
+
+.link_style {
+  color: black;
+  text-decoration: none !important;
+}
+
+.notice {
+  text-align: center;
 }

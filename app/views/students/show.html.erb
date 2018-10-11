@@ -1,22 +1,39 @@
+<div class="alert-success" role="alert">
+  <% if notice.to_s.length != 0 %>
+    <p class="alert notice"><%= notice %></p>
+  <% end %>
+</div>
+
 <div class="container">
   <div class="row show-row">
-    <div class="col-5 show-containers">
+    <div class="col-md-6 show-containers">
       <%= image_tag("profile_placeholder" , size: "200x200", class: "show-profile") %>
+      <%if @student.active == true %>
+        <h1><span class="badge badge-success show-active">Active</span></h1>
+        <%else%>
+        <h1><span class="badge badge-secondary show-active">Inactive</span></h1>
+        <%end%>
     </div>
-    <div class="col-5 show-containers">
-      <h1><%= @student.name.capitalize %>
-      -<%if @student.active == true %>
-      <span class="active">Active</span>
-      <%else%>
-      <span class="inactive">Inactive</span>
-      <%end%>
-      </h1>
-      <h1>Group: <%= @group.name.upcase %></h1>
-      <h1>Stream: <%=@group.stream.upcase %></h1>
+    <div class="col-md-6 show-containers">
+      <table>
+        <tr>
+          <td><h1>Name</h1></td>
+          <td><h1><%= @student.name.titlecase %></h1></td>
+        </tr>
+        <tr>
+          <td><h1>Group</h1></td>
+          <td><h1><%= link_to "#{@group.name.upcase}", @group, class: "badge badge-info" %></h1></td>
+        </tr>
+        <tr>
+          <td><h1>Stream</h1></td>
+          <td><h1><span class="badge badge-info"><%=@group.stream.upcase %></span></h1></td>
+        </tr>
+      </table>
     </div>
   </div>
 
-  <table class="table">
+  <!-- INDIVIDUAL ATTENDANCE -->
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th scope="col">On Time</th>
@@ -79,10 +96,9 @@
       </tr>
     </tbody>
   </table>
+<!-- INDIVIDUAL ATTENDANCE END -->
 
 <!-- CALENDAR ----------------->
-
-  <h1>Calendar</h1>
 
   <table class="table table-bordered">
   <thead>
@@ -105,36 +121,53 @@
     <!-- Will PUT weekend dates in weekdays if weekends are included in attendances -->
     <%# TODO: FIX ABOVE %>
 
-    <% count = -5 %>
+    <% count = 0 %>
+    <% week_date = @group.startdate %>
     <% (1..cWeeks).each do |i| %>
-    <% count = count + 5 %>
       <tr>
-        <th scope="row"><%= i %></th>
-
-        <% (0..4).each do |j| %>
+        <th scope="row" class="week"><div>Week <%= i %></div> <div><%= week_date.strftime('%d/%m') %></div></th>
+        <% (0..6).each do |j| %>
+          <!-- Confirm that the attendance exists -->
+          <!-- If it doesn't, leave the calendar space blank if it is a weekday -->
           <% if @student.attendances[count + j].nil? %>
-            <td></td>
+
+            <!-- Stops weekend cells printing on nil attendance -->
+            <% if j.between?(0, 4) %>
+              <!-- DO NOT DELETE ME -->
+              <td></td>
+              <!-- DO NOT DELETE ME -->
+            <% end %>
+
           <% else %>
-            <%
-            className = ""
-            case @student.attendances[count + j].att_status
-            when 1
-              className = "on_time"
-            when 2
-              className = "less_than_five"
-            when 3
-              className = "more_than_five"
-            when 4
-              className = "auth"
-            when 5
-              className = "unauth"
-            end
-            %>
-            <td class="<%= className %>"></td>
+            <!-- Confirm that the attendance date is a weekday -->
+            <!-- If it is a weekday do this -->
+            <% if @student.attendances[count + j].date.on_weekday? %>
+
+              <%
+              className = ""
+              case @student.attendances[count + j].att_status
+              when 1
+                className = "on_time"
+              when 2
+                className = "less_than_five"
+              when 3
+                className = "more_than_five"
+              when 4
+                className = "auth"
+              when 5
+                className = "unauth"
+              end
+              %>
+
+              <td class="<%= className %>"></td>
+            <% else %>
+              <!-- What? -->
+            <% end %>
           <% end %>
         <% end %>
-
+        <% week_date += 7 %>
       </tr>
+      <% count = count + 7 %>
     <% end %>
   </tbody>
 </table>
@@ -143,47 +176,45 @@
 
 <!-- Key -->
 
-<h2 class="key">Key</h2>
+<h2 class="calendarkey">Key</h2>
 
-<div class="row key">
-  <div class="col-lg-2">
+<div class="row calendarkey">
+
+  <div class="col">
     <p>On Time:</p>
   </div>
-  <div class="col-lg-2 on_time">
+  <div class="col on_time">
 
   </div>
-</div>
-<div class="row key">
-  <div class="col-lg-2">
+
+  <div class="col">
     <p>< 5 mins:</p>
   </div>
-  <div class="col-lg-2 less_than_five">
+  <div class="col less_than_five">
 
   </div>
-</div>
-<div class="row key">
-  <div class="col-lg-2">
+
+  <div class="col">
     <p>> 5 mins:</p>
   </div>
-  <div class="col-lg-2 more_than_five">
+  <div class="col more_than_five">
 
   </div>
-</div>
-<div class="row key">
-  <div class="col-lg-2">
+
+  <div class="col">
     <p>Authorised</p>
   </div>
-  <div class="col-lg-2 auth">
+  <div class="col auth">
 
   </div>
-</div>
-<div class="row key">
-  <div class="col-lg-2">
+
+  <div class="col">
     <p>Unauthorised</p>
   </div>
-  <div class="col-lg-2 unauth">
+  <div class="col unauth">
 
   </div>
+
 </div>
 
   <div class="actions-list">

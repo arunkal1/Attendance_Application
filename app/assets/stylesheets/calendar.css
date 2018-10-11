@@ -18,6 +18,10 @@
   background-color: red;
 }
 
+.week {
+  text-align: center;
+}
+
 .weekSize {
   width: 10%;
 }
@@ -26,6 +30,6 @@
   width: 15%;
 }
 
-.key{
+.calendarkey{
   padding-top: 10px;
 }
