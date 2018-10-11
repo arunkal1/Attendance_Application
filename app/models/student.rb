@@ -21,9 +21,7 @@ class Student < ApplicationRecord
     course_list = courses
   end
 
-<<<<<<< HEAD
+
   COURSE_LIST = courses
 
-=======
->>>>>>> dev
 end
