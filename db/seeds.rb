@@ -34,13 +34,13 @@ Student.create(name: 'Steve', active: true, group_id: 2)
 aNumber = Random.new
 
 (1..30).each do |i|
-  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 1)
-  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 2)
-  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 3)
-  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 4)
-  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 5)
-  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 6)
-  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 7)
-  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 8)
-  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), student_id: 9)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), comment: 'Hello World', student_id: 1)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), comment: 'Hello World', student_id: 2)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), comment: 'Hello World', student_id: 3)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), comment: 'Hello World', student_id: 4)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), comment: 'Hello World', student_id: 5)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), comment: 'Hello World', student_id: 6)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), comment: 'Hello World', student_id: 7)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), comment: 'Hello World', student_id: 8)
+  Attendance.create(date: i.to_s + '/01/2018', att_status: aNumber.rand(1..5), comment: 'Hello World', student_id: 9)
 end

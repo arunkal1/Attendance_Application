@@ -157,9 +157,22 @@
               when 5
                 className = "unauth"
               end
+
+              date = @student.attendances[count + j].date
+              comment = @student.attendances[count + j].comment
+
               %>
 
-              <td class="<%= className %>"></td>
+              <td class="<%= className %>">
+                <a tabindex="0" data-toggle="popover" data-trigger="focus" title="<%= date %>" data-content="<%= comment %>">
+                  <button type="button" class="btn btn-default btn-sm">
+                    <%= image_tag "icons8-topic-24.png" %>
+                  </button>
+                </a>
+              </td>
+
+              <!-- <a tabindex="0" data-toggle="popover" data-trigger="focus" title="Notes for: <%= date %>" data-content="<%= comment %>">Notes</a> -->
+
             <% else %>
               <!-- What? -->
             <% end %>
@@ -225,5 +238,3 @@
 
 <br>
 <br>
-
-<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
