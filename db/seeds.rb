@@ -28,6 +28,8 @@ Student.create(name: 'Michael', active: true, group_id: 1)
 Student.create(name: 'Elisha', active: true, group_id: 1)
 Student.create(name: 'Pinder', active: true, group_id: 1)
 
+Student.create(name: 'Steve', active: true, group_id: 2)
+
 
 aNumber = Random.new
 
