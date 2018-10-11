@@ -2,6 +2,8 @@ class Attendance < ApplicationRecord
   # attr_accessible :att_status, :student_id
   belongs_to :student
 
+  validates :att_status, presence: { message: "Status Must Be Given" }
+
   groups_list =[]
   courses = []
   group = Group.all

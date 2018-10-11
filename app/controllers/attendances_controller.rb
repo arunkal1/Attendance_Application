@@ -41,9 +41,13 @@ class AttendancesController < ApplicationController
     puts "ATTENADANCE: #{@attendance.att_status}"
     puts "ID: #{@attendance.student_id}"
 
-
-    @attendance.save
-    redirect_back fallback_location: root_path
+    respond_to do |format|
+      if @attendance.save
+        format.html{redirect_back fallback_location: root_path}
+      else
+        format.html{redirect_back fallback_location: root_path}
+      end
+    end
   end
 
   def update
