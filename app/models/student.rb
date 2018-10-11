@@ -18,7 +18,7 @@ class Student < ApplicationRecord
       courses.push output
     end
 
-    course_list = courses
+    course_list = courses.reverse
   end
 
 
