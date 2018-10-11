@@ -5,11 +5,12 @@ class Group < ApplicationRecord
 
   active_option = [true,false]
 
-  validates :name, presence: { message: "name must be given" }
-  validates :stream, presence: { message: "stream must be given" }
-  validates :startdate, presence: { message: "start date must be given" }
-  validates :enddate, presence: { message: "end date must be given" }
-  validates :enddate, presence: true, date: { after_or_equal_to: :startdate, message: "the end date given must be after the start date given"}
+
+  validates :name, presence: { message: "Name Must Be Given" }
+  validates :stream, presence: { message: "Stream Must Be Given" }
+  validates :startdate, presence: { message: "Start Date Must Be Given" }
+  validates :enddate, presence: { message: "End Date Must Be Given" }
+  validates :enddate, presence: true, date: { after_or_equal_to: :startdate, message: "The End Date Given Must Be After The Start Date Given"}
 
  # ACTIVE_OPTION = active_option
 

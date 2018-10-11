@@ -121,3 +121,16 @@ h1 {
   color: white;
   text-decoration: none;
 }
+
+.message-info {
+  max-width: 450px;
+  text-align: left;
+}
+
+.message {
+  margin-left: -35px;
+}
+
+.att-form {
+  padding-top: 50px;
+}

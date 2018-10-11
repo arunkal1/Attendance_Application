@@ -1,9 +1,19 @@
-  <form id="myForm" action="/attendances/new" method="get">
+<h1>Add New Attendances</h1>
+
+<center>
+  <form id="myForm" action="/attendances/new" method="get" class="att-form">
+    <div class="field">
       <select name="group">
         <% @groups.each do |group| %>
         <option value="<%= group.id %>"><%= group.name %></option>
         <% end %>
       </select>
-    <input type="date" name="date" value="" />
-    <button type="submit">Submit</button>
+    </div>
+    <div class="field">
+      <input type="date" name="date" value="" />
+    </div>
+    <div class="field">
+      <button type="submit">Submit</button>
+    </div>
   </form>
+</center>

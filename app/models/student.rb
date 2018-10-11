@@ -6,7 +6,7 @@ class Student < ApplicationRecord
   accepts_nested_attributes_for :attendances, allow_destroy: true
 
 
- validates :name, presence: { message: "name must be given" }
+ validates :name, presence: { message: "Must Be Given" }
 
   # Function used by students controller will return a list of courses. This is passed to the students form.
   def self.course_list_assign
@@ -18,7 +18,7 @@ class Student < ApplicationRecord
       courses.push output
     end
 
-    course_list = courses
+    course_list = courses.reverse
   end
 
 
