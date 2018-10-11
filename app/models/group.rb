@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
 
-  has_many :students
+  has_many :students, :dependent => :delete_all
 
 
   active_option = [true,false]
