@@ -109,9 +109,6 @@
 
     <!-- Does the course start on a Monday? -->
     <% week_date = @group.startdate %>
-    <% @student.attendances.order('date').each do |att|
-      puts att.date
-    end %>
     <% puts week_date %>
     <% puts week_date.monday? %>
 
@@ -129,6 +126,9 @@
     <% cWeeks = (cDays / 7).ceil %>
 
     <% count = 0 %>
+    <% cellDate = week_date %>
+    <% puts @student.attendances.find_by(date: '2018/01/15').att_status %>
+
     <% (1..cWeeks).each do |i| %>
       <tr>
         <th scope="row" class="week"><div>Week <%= i %></div> <div><%= week_date.strftime('%d/%m') %></div></th>
@@ -136,10 +136,12 @@
         <!-- Iterate through each week and fill boxes accordingly -->
         <!-- Week start (0)=Monday -->
         <% (0..6).each do |j| %>
+          <% puts cellDate %>
+          <% cellAttendance = @student.attendances.find_by(date: cellDate) %>
 
           <!-- Confirm that the attendance exists -->
           <!-- If it doesn't, leave the calendar space blank if it is a weekday -->
-          <% if @student.attendances[count + j].nil? %>
+          <% if cellAttendance.nil? %>
 
             <!-- Stops weekend cells appearing on nil attendance -->
             <% if j.between?(0, 4) %>
@@ -151,12 +153,12 @@
 
           <% else %>
             <!-- Confirm that the attendance date is a weekday -->
-            <% if @student.attendances[count + j].date.on_weekday? %>
+            <% if cellAttendance.date.on_weekday? %>
 
               <!-- If it is a weekday attach the relevant CSS class depending on the attendance att_status -->
               <%
               className = ""
-              case @student.attendances[count + j].att_status
+              case cellAttendance.att_status
               when 1
                 className = "on_time"
               when 2
@@ -174,6 +176,10 @@
 
             <% end %>
           <% end %>
+
+          <!-- +1 to cell's associated date value -->
+          <% cellDate += 1 %>
+
         <% end %>
         <% week_date += 7 %>
       </tr>
