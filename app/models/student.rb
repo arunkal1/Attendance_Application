@@ -12,5 +12,6 @@ class Student < ApplicationRecord
     courses.push output
   end
 
+
   COURSE_LIST = courses
 end
