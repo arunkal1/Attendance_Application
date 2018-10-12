@@ -10,7 +10,6 @@ A web-based application for managing and monitoring attendance of the Sparta Glo
 
 A web-based application for managing and monitoring attendance of the Sparta Global training schemes to be used internally by the Sparta Global management. A register of all employees attendance is kept daily to ensure trainees prompt arrival to work every day, preparing future consultants for the requirements of everyday working life and ensuring the continued high-quality services customers have come to expect from the Sparta Global team.
 
-The link to the application can be found [here](www.google.co.uk)
 
 ## Installation
 To clone the repository, [go to this link ](https://github.com/arunkal1/Attendance_Application) and you will see the following page:
