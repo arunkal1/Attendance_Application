@@ -115,16 +115,12 @@
 
     <!-- Does the course start on a Monday? -->
     <% week_date = @group.startdate %>
-    <% puts week_date %>
-    <% puts week_date.monday? %>
 
     <!-- If not, count backwards to the nearest Monday and start the calendar from there -->
     <!-- date.wday gives an integer value 0-6 depending on the day (Sunday=0, Monday=1 etc...) -->
     <% if week_date.wday != 1
       week_date -= (week_date.wday - 1)
 
-      puts week_date
-      puts week_date.monday?
     end %>
 
     <!-- Calculate total number of weeks in course using week_date -->
@@ -132,7 +128,6 @@
     <% cWeeks = (cDays / 7).ceil %>
 
     <% cellDate = week_date %>
-    <% puts @student.attendances.find_by(date: '2018/01/15').att_status %>
 
     <!-- variable to track what the date is on each day. The date is initialised as the dtart date of the course-->
     <% dateVar = @group.startdate %>
