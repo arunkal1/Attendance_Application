@@ -1,0 +1,61 @@
+<center>
+
+<%= form_for @attendance do |g| %>
+
+<% if @attendance.errors.any? %>
+<div class="alert alert-danger message-info" role="alert">
+  <h2 class="alert-heading"> <%= pluralize(@attendance.errors.count,'error') %> To Fix </h2>
+  <hr>
+  <% @attendance.errors.each do |attr, message| %>
+    <ul>
+      <li style="list-style: none;">
+        <% if message.to_s.length != 0 %>
+          <p class="mb-0 message" role="alert"><%= message %></p>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+</div>
+<% end %>
+
+  <!-- sets up some values-->
+  <% student_list = [] %>
+  <% group = @group %>
+
+  <!-- sets the date to the date entered on the previous page -->
+  <%= g.hidden_field :date, value: $date %>
+
+
+  <div class="attendance_form">
+
+    <!-- logic to show students or not -->
+    <% group.students.each do |student| %>
+      <% exists = false %>
+      <% example = student.attendances.where("date = '#{$date}'") %>
+      <% puts "date: #{$date}" %>
+      <% unless example.empty? %>
+        <% exists = true %>
+      <% end %>
+      <% unless exists == true %>
+        <% output = "#{student.id} - #{student.name}" %>
+        <% student_list.push output %>
+      <% end %>
+    <% end %>
+
+    <!-- display group name -->
+    <%= @group.name %> <br>
+
+    <div class="field">
+      <!-- drop down list for each student and collects the students id -->
+      <%= g.select(:student_id, student_list) %>
+    </div>
+    <div class="">
+      <%= g.collection_radio_buttons :att_status, (1..5).map{|n| [n, n]}, :first, :last, :class => "form-control" %>
+    </div>
+   </div>
+
+  <div class="actions">
+    <%= g.submit %>
+  </div>
+<% end %>
+</center>

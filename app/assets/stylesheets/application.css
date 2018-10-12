@@ -15,7 +15,7 @@
  */
 
  .form{
-   border: 1px solid black;
+   /* border: 1px solid #; */
    width: 70%;
    padding: 1%;
  }
@@ -39,6 +39,6 @@
  }
 
 .dropdown-menu{
-  height: 60vh;
+  max-height: 60vh;
   overflow: scroll;
 }

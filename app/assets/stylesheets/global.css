@@ -26,11 +26,17 @@ h1 {
 }
 
 .group-container {
-  border: 2px #7C7C7C solid;
-  border-radius: 5px;
   margin-top: 30px;
   padding-bottom: 30px;
   padding-top: 30px;
+}
+
+.group-container ul{
+  padding-left: 0;
+}
+
+.group-container ul li{
+  list-style: none;
 }
 
 .dropdown_links {
@@ -51,17 +57,17 @@ h1 {
   width: 100%;
 }
 
-.active{
+.active-group{
   box-shadow: 10px 10px 10px green;
 }
 
-.active:hover ,
-.inactive:hover {
+.active-group:hover ,
+.inactive-group:hover {
   position: relative;
   top: -10px;
 }
 
-.inactive{
+.inactive-group{
   box-shadow: 10px 10px 10px red;
   opacity: 0.7;
 }
@@ -82,4 +88,49 @@ h1 {
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 15px;
+}
+
+.attend_group {
+  margin-bottom: 25px;
+}
+
+.attend_group li{
+  list-style: none;
+}
+
+.link_style {
+  color: black;
+  text-decoration: none !important;
+}
+
+.notice {
+  text-align: center;
+}
+
+.verticalLine {
+  border-left: 2px solid #FCFCFC;
+  margin-left: 5px;
+  padding-right: 10px;
+}
+
+.footer-link {
+  color: rgba(255,255,255,.5);
+}
+
+.footer-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.message-info {
+  max-width: 450px;
+  text-align: left;
+}
+
+.message {
+  margin-left: -35px;
+}
+
+.att-form {
+  padding-top: 50px;
 }
