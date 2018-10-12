@@ -44,7 +44,8 @@
     <% end %>
 
     <!-- display group name -->
-    <h2><%= @group.name %></h2> <br>
+    <h2><%= link_to "#{@group.name}", group_path(@group) %> </h2>
+    <br>
 
     <div class="select att_field">
       <!-- drop down list for each student and collects the students id -->
