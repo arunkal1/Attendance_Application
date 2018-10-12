@@ -20,8 +20,4 @@ class Student < ApplicationRecord
 
     course_list = courses.reverse
   end
-
-
-  COURSE_LIST = course_list_assign
-
 end
