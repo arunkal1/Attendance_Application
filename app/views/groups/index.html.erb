@@ -103,50 +103,56 @@
 
 <script type="text/javascript">
 
+  // Loads the page with the groups being shown ordered by ID
   $("#order_id").show()
   $("#order_name").hide();
   $("#order_active").hide();
 
+  // Adds click event to the "sort by name" button to display the groups ordered by name
   document.getElementById("sort_name").addEventListener("click", function(){
     $("#order_name").show();
     $("#order_id").hide();
     $("#order_active").hide();
-
-
-    // $("#sort_name").css({"background-color":"black", "color":"white"})
   });
 
+  // Adds click event to the "sort by ID" button to display the groups ordered by ID
   document.getElementById("sort_id").addEventListener("click", function(){
     $("#order_name").hide();
     $("#order_id").show();
     $("#order_active").hide();
-
-    // $("#group_info").load(location.href+" #group_info>*","");
   });
 
+  // Adds click event to the "sort by active" button to display the groups
+  //ordered by acitve groups first
   document.getElementById("sort_active").addEventListener("click", function(){
     $("#order_name").hide();
     $("#order_id").hide();
     $("#order_active").show();
-    // $("#group_info").load(location.href+" #group_info>*","");
   });
 
+  //Function to keep checking how the grouos are being displayed and highilght a button accordingly
   setInterval(function () {
+    //Checks if the groups are displayed in name order
     if ($("#order_name").is(":visible")) {
       $("#sort_name").css({"background-color":"black", "color":"white"})
     } else {
       $("#sort_name").css({"background-color":"#6c757d", "color":"white"})
     }
+
+    //Checks if the groups are displayed ID ordered by
     if ($("#order_active").is(":visible")) {
       $("#sort_active").css({"background-color":"black", "color":"white"})
     } else {
       $("#sort_active").css({"background-color":"#6c757d", "color":"white"})
     }
+
+    //Checks if the groups are displayed with active groups being shown first
     if ($("#order_id").is(":visible")) {
       $("#sort_id").css({"background-color":"black", "color":"white"})
     } else {
       $("#sort_id").css({"background-color":"#6c757d", "color":"white"})
     }
+
   }, 10);
 
 </script>
