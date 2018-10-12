@@ -26,10 +26,25 @@
   width: 10%;
 }
 
+.att_status_size {
+  width: 20%;
+}
+
 .otherSize {
   width: 15%;
 }
 
 .calendarkey{
   padding-top: 10px;
+}
+
+.todayMessage {
+  color: black;
+  font-weight: bold;
+  text-align: right;
+}
+
+.today-align {
+  display: inline;
+  padding-left: 30%;
 }
