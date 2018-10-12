@@ -203,11 +203,19 @@
                 textSame = ""
               end %>
 
+
               <td class="<%= className %> hoverBin">
-                <a tabindex="0" data-toggle="popover" data-trigger="focus" title="<%= date %>" data-content="<%= comment %>">
-                    <%= image_tag "icons8-topic-24.png" %>
-                  </button>
-                </a>
+
+                <% unless comment === "" %>
+                  <a tabindex="0" data-toggle="popover" data-trigger="focus" title="<%= date %>" data-content="<%= comment %>">
+                      <%= image_tag "icons8-topic-24.png" %>
+                  </a>
+                <% else %>
+                  <a tabindex="0" data-toggle="popover" data-trigger="focus" title="<%= date %>" data-content="<%= comment %>">
+                      <%= image_tag "" %>
+                  </a>
+                <% end %>
+
                 <div class="cocktailShakerBin">
                   <%= link_to (image_tag "cocktailShakerBin.png"), cellAttendance, method: :delete %>
                 </div>
