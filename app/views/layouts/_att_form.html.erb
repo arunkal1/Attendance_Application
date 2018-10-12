@@ -37,7 +37,7 @@
       <% unless example.empty? %>
         <% exists = true %>
       <% end %>
-      <% unless exists == true %>
+      <% unless exists == true || student.active == false %>
         <% output = "#{student.id} - #{student.name}" %>
         <% student_list.push output %>
       <% end %>
