@@ -27,7 +27,7 @@
   <%= g.hidden_field :date, value: $date %>
 
 
-  <div class="attendance_form">
+  <div class="att_form form">
 
     <!-- logic to show students or not -->
     <% group.students.each do |student| %>
@@ -44,23 +44,23 @@
     <% end %>
 
     <!-- display group name -->
-    <%= @group.name %> <br>
+    <h2><%= @group.name %></h2> <br>
 
     <div class="select att_field">
       <!-- drop down list for each student and collects the students id -->
       <%= g.select(:student_id, student_list) %>
     </div>
     <div class="radio_buttons att_field">
-      <%= g.collection_radio_buttons :att_status, (1..5).map{|n| [n, status[n-1]]}, :first, :last, :class => "form-control" %>
+      <%= g.collection_radio_buttons :att_status, (1..5).map{|n| [n, status[n-1]]}, :first, :last, :class => "col-12 form-control" %>
     </div>
     <div class="field att_field">
       <%= g.label :comment %>
       <%= g.text_field :comment %>
     </div>
-   </div>
 
   <div class="action att_field">
     <%= g.submit %>
   </div>
+</div>
 <% end %>
 </center>

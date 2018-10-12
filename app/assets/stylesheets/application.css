@@ -42,7 +42,11 @@
 .radio_buttons input{
   margin: 10px 7px 10px 20px;
 }
+.radio_buttons{
+    max-width: 498px;
+}
 
-.att_field{
+.att_field {
   margin-top: 20px;
+
 }
