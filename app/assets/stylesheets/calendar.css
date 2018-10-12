@@ -41,4 +41,10 @@
 .todayMessage {
   color: black;
   font-weight: bold;
+  text-align: right;
+}
+
+.today-align {
+  display: inline;
+  padding-left: 30%;
 }
