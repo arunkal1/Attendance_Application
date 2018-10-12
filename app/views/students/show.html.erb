@@ -13,6 +13,10 @@
         <%else%>
         <h1><span class="badge badge-secondary show-active">Inactive</span></h1>
         <%end%>
+        <div class="actions-list">
+          <%= link_to "Edit Student", edit_student_path, class: "btn btn-primary" %>
+          <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
+        </div>
     </div>
     <div class="col-md-6 show-containers">
       <table>
@@ -135,7 +139,7 @@
     <% cellDate = week_date %>
 
     <!-- variable to track what the date is on each day. The date is initialised as the dtart date of the course-->
-    <% dateVar = @group.startdate %>
+    <% dateVar = week_date %>
     <!-- variable will be used to apply a border to the cell if the attendance date is the same as todays date -->
     <% dateSame = "" %>
     <!-- variable to add text to the cell -->
@@ -204,13 +208,15 @@
                 textSame = ""
               end %>
 
-              <td class="<%= className %>">
+              <td class="<%= className %> hoverBin">
                 <a tabindex="0" data-toggle="popover" data-trigger="focus" title="<%= date %>" data-content="<%= comment %>">
-                  <button type="button" class="btn btn-default btn-sm">
                     <%= image_tag "icons8-topic-24.png" %>
                   </button>
                 </a>
-                <p class="<%= dateSame %>"><%= textSame %></p>
+                <div class="cocktailShakerBin">
+                  <%= link_to (image_tag "cocktailShakerBin.png"), cellAttendance, method: :delete %>
+                </div>
+                <p class="<%= dateSame %> today-align"><%= textSame %></p>
               </td>
 
             <% else %>
@@ -272,11 +278,6 @@
   </div>
 
 </div>
-
-  <div class="actions-list">
-    <%= link_to "Edit Student", edit_student_path, class: "btn btn-primary" %>
-    <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
-  </div>
 </div>
 
 <br>

@@ -11,12 +11,11 @@
 }
 
 .show-row {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .show-containers {
-  margin: 50px auto;
-  height: 220px;
+  margin: 25px auto;
   display: block;
 }
 
@@ -39,6 +38,7 @@
 .show-active {
   float: center;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 .show-attendance {
@@ -48,7 +48,7 @@
 }
 
 .actions-list {
-  margin: 20px 0;
+  text-align: center;
 }
 
 .page-item {
@@ -75,5 +75,11 @@
 @media screen and (max-width: 510px) {
   h1 {
     font-size: 25px;
+  }
+}
+
+.hoverBin:hover {
+  .cocktailShakerBin img{
+    display: inline;
   }
 }
