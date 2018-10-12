@@ -1,4 +1,5 @@
 <center>
+<% status = ["On time", "Late by <5 minutes", "Late by >5 minutes", "Authorised Absence", "Unauthorised Absence"] %>
 
 <%= form_for @attendance do |g| %>
 
@@ -26,7 +27,7 @@
   <%= g.hidden_field :date, value: $date %>
 
 
-  <div class="attendance_form">
+  <div class="att_form form">
 
     <!-- logic to show students or not -->
     <% group.students.each do |student| %>
@@ -36,26 +37,31 @@
       <% unless example.empty? %>
         <% exists = true %>
       <% end %>
-      <% unless exists == true %>
+      <% unless exists == true || student.active == false %>
         <% output = "#{student.id} - #{student.name}" %>
         <% student_list.push output %>
       <% end %>
     <% end %>
 
     <!-- display group name -->
-    <%= @group.name %> <br>
+    <h2><%= link_to "#{@group.name}", group_path(@group) %> </h2>
+    <br>
 
-    <div class="field">
+    <div class="select att_field">
       <!-- drop down list for each student and collects the students id -->
       <%= g.select(:student_id, student_list) %>
     </div>
-    <div class="">
-      <%= g.collection_radio_buttons :att_status, (1..5).map{|n| [n, n]}, :first, :last, :class => "form-control" %>
+    <div class="radio_buttons att_field">
+      <%= g.collection_radio_buttons :att_status, (1..5).map{|n| [n, status[n-1]]}, :first, :last, :class => "col-12 form-control" %>
     </div>
-   </div>
+    <div class="field att_field">
+      <%= g.label :comment %>
+      <%= g.text_field :comment %>
+    </div>
 
-  <div class="actions">
+  <div class="action att_field">
     <%= g.submit %>
   </div>
+</div>
 <% end %>
 </center>

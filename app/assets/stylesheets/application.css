@@ -20,15 +20,11 @@
    padding: 1%;
  }
 
- .nameInput input {
+ .nameInput input,  .select select  {
    width: 40%;
  }
 
- .select select {
-   width: 40%;
- }
-
- .action input{
+ .action input, .action_button button{
    width: 40%;
    border-radius: 20px;
    background-color: #4db8ff;
@@ -41,4 +37,16 @@
 .dropdown-menu{
   max-height: 60vh;
   overflow: scroll;
+}
+
+.radio_buttons input{
+  margin: 10px 7px 10px 20px;
+}
+.radio_buttons{
+    max-width: 498px;
+}
+
+.att_field {
+  margin-top: 20px;
+
 }
