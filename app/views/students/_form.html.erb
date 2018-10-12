@@ -16,6 +16,7 @@
   <% end %>
   <br>
   <center>
+  <!-- A text field for the user to input the students name -->
   <div class="form">
     <div class="field">
       <%= p.label :name %>
@@ -24,12 +25,14 @@
       </div>
     </div>
     <br>
+    <!-- A select field for the user to select the students course  -->
     <div class="field">
       <%= p.label :group_id %>
       <div class="select">
-        <%= p.select(:group_id, @course_list) %>
+        <%= p.select(:group_id, @course_list) %> <!-- @course_list can be found in the students.rb file -->
       </div>
     </div>
+    <!-- A checkbox that allows the user to tick a box to state whether the student is on the course or not -->
     <div class="field">
       <%= p.label :active %>
       <%= p.check_box :active %>
