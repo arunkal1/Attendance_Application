@@ -9,25 +9,13 @@ class AttendancesController < ApplicationController
   end
 
   def new
-    # @group = Group.find 1
+
     $id = params[:group]
     @group = Group.find $id
     $date = params[:date]
-    puts "date: #{$date}"
 
 
-    puts @group.name
-
-    # @group.students.each do |student|
-      # @attendance = @group.students[1].attendances.new
-      @attendance = Attendance.new
-    # end
-
-    # @group.students.each do |student|
-    #   puts "STUDENT: #{student.name}"
-    #   @attendance = student.attendances.new
-    #   puts "STUDENT ATTENDANCES: #{student.attendances}"
-    # end
+    @attendance = Attendance.new
 
   end
 
@@ -62,6 +50,7 @@ class AttendancesController < ApplicationController
   def attendance_params
     attendance_params = params.require(:attendance).permit(:att_status, :date, :comment, :student_id)
   end
+  
   def group_params
     group_params = params.require(:group).permit(:name)
   end
