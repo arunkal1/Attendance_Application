@@ -1,4 +1,5 @@
 <center>
+<% status = ["On time", "Late by <5 minutes", "Late by >5 minutes", "Authorised Absence", "Unauthorised Absence"] %>
 
 <%= form_for @attendance do |g| %>
 
@@ -45,16 +46,20 @@
     <!-- display group name -->
     <%= @group.name %> <br>
 
-    <div class="field">
+    <div class="select att_field">
       <!-- drop down list for each student and collects the students id -->
       <%= g.select(:student_id, student_list) %>
     </div>
-    <div class="">
-      <%= g.collection_radio_buttons :att_status, (1..5).map{|n| [n, n]}, :first, :last, :class => "form-control" %>
+    <div class="radio_buttons att_field">
+      <%= g.collection_radio_buttons :att_status, (1..5).map{|n| [n, status[n-1]]}, :first, :last, :class => "form-control" %>
+    </div>
+    <div class="field att_field">
+      <%= g.label :comment %>
+      <%= g.text_field :comment %>
     </div>
    </div>
 
-  <div class="actions">
+  <div class="action att_field">
     <%= g.submit %>
   </div>
 <% end %>
