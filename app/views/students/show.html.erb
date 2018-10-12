@@ -1,3 +1,7 @@
+<script type="text/javascript">
+$('[data-toggle="popover"]').popover()
+</script>
+
 <div class="alert-success" role="alert">
   <% if notice.to_s.length != 0 %>
     <p class="alert notice"><%= notice %></p>
@@ -287,17 +291,3 @@
 
 </div>
 </div>
-
-<script type="text/javascript">
-$(document).ready(function(){
-    //Check if the current URL contains '#'
-    if(document.URL.indexOf("#")==-1){
-        // Set the URL to whatever it was plus "#".
-        url = document.URL+"#";
-        location = "#";
-
-        //Reload the page
-        location.reload(true);
-    }
-});
-</script>
