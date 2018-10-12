@@ -1,3 +1,9 @@
+<div class="alert-success" role="alert">
+  <% if notice.to_s.length != 0 %>
+    <p class="alert notice"><%= notice %></p>
+  <% end %>
+</div>
+
 <div class="container">
   <div class="row show-row">
     <div class="col-md-6 show-containers">
@@ -30,11 +36,11 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col">On Time</th>
-        <th scope="col">< 5 mins</th>
-        <th scope="col">> 5 mins</th>
-        <th scope="col">Authorised</th>
-        <th scope="col">Unauthorised</th>
+        <th scope="col" class="att_status_size">On Time</th>
+        <th scope="col" class="att_status_size">< 5 mins</th>
+        <th scope="col" class="att_status_size">> 5 mins</th>
+        <th scope="col" class="att_status_size">Authorised</th>
+        <th scope="col" class="att_status_size">Unauthorised</th>
       </tr>
     </thead>
     <tbody>
@@ -128,6 +134,13 @@
     <% cellDate = week_date %>
     <% puts @student.attendances.find_by(date: '2018/01/15').att_status %>
 
+    <!-- variable to track what the date is on each day. The date is initialised as the dtart date of the course-->
+    <% dateVar = @group.startdate %>
+    <!-- variable will be used to apply a border to the cell if the attendance date is the same as todays date -->
+    <% dateSame = "" %>
+    <!-- variable to add text to the cell -->
+    <% textSame = "" %>
+
     <% (1..cWeeks).each do |i| %>
       <tr>
         <th scope="row" class="week"><div>Week <%= i %></div> <div><%= week_date.strftime('%d/%m') %></div></th>
@@ -138,6 +151,14 @@
           <% puts cellDate %>
           <% cellAttendance = @student.attendances.find_by(date: cellDate) %>
 
+          <!-- check if the date of the attendance corresponds to todays date -->
+          <% if dateVar == Date.today
+            dateSame = "todayMessage"
+            textSame = "Today"
+             else
+            dateSame = ""
+            textSame = ""
+          end %>
           <!-- Confirm that the attendance exists -->
           <!-- If it doesn't, leave the calendar space blank if it is a weekday -->
           <% if cellAttendance.nil? %>
@@ -146,7 +167,7 @@
             <% if j.between?(0, 4) %>
               <!-- DO NOT DELETE ME -->
               <!-- I ensure that any empty entries are left blank -->
-              <td></td>
+              <td><p class="<%= dateSame %>"><%= textSame %></p></td>
               <!-- DO NOT DELETE ME -->
             <% end %>
 
@@ -169,16 +190,37 @@
               when 5
                 className = "unauth"
               end
+
+              date = cellAttendance.date
+              comment = cellAttendance.comment
+
               %>
 
-              <td class="<%= className %>"></td>
+              <% if dateVar == Date.today
+                dateSame = "todayMessage"
+                textSame = "Today"
+                 else
+                dateSame = ""
+                textSame = ""
+              end %>
 
+              <td class="<%= className %>">
+                <a tabindex="0" data-toggle="popover" data-trigger="focus" title="<%= date %>" data-content="<%= comment %>">
+                  <button type="button" class="btn btn-default btn-sm">
+                    <%= image_tag "icons8-topic-24.png" %>
+                  </button>
+                </a>
+                <p class="<%= dateSame %>"><%= textSame %></p>
+              </td>
+
+            <% else %>
+              <!-- What? -->
             <% end %>
           <% end %>
-
+          <!-- increment the date by one -->
+          <% dateVar += 1 %>
           <!-- +1 to cell's associated date value -->
           <% cellDate += 1 %>
-
         <% end %>
         <% week_date += 7 %>
       </tr>
@@ -216,14 +258,14 @@
   </div>
 
   <div class="col">
-    <p>Authorised</p>
+    <p>Authorised:</p>
   </div>
   <div class="col auth">
 
   </div>
 
   <div class="col">
-    <p>Unauthorised</p>
+    <p>Unauthorised:</p>
   </div>
   <div class="col unauth">
 
@@ -236,3 +278,6 @@
     <%= link_to "Delete Student", @student, method: :delete, class: "btn btn-danger" %>
   </div>
 </div>
+
+<br>
+<br>
