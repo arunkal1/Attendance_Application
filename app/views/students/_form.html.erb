@@ -1,11 +1,18 @@
 <%= form_for student do |p| %>
+
+<center>
   <% if student.errors.any? %>
-    <h2><%= pluralize(student.errors.count, 'error') %> to fix </h2>
+  <div class="alert alert-danger message-info" role="alert">
+    <h2 class="alert-heading"><%= pluralize(student.errors.count, 'error') %> To Fix </h2>
+    <hr>
       <% student.errors.full_messages.each do |message| %>
       <ul>
-        <li> <%= message %> </li>
+        <li style="list-style: none;">
+          <p class="mb-0 message" role="alert"> <%= message %> </p>
+        </li>
       </ul>
     <% end %>
+  </div>
   <% end %>
   <br>
   <center>
@@ -20,7 +27,7 @@
     <div class="field">
       <%= p.label :group_id %>
       <div class="select">
-        <%= p.select(:group_id, Student::COURSE_LIST)%>
+        <%= p.select(:group_id, @course_list) %>
       </div>
     </div>
     <div class="field">

@@ -1,2 +1,19 @@
-<h1>Attendances#index</h1>
-<p>Find me in app/views/attendances/index.html.erb</p>
+<h1>Add New Attendances</h1>
+
+<center>
+  <form id="myForm" action="/attendances/new" method="get" class="att-form">
+    <div class="field">
+      <select name="group">
+        <% @groups.each do |group| %>
+        <option value="<%= group.id %>"><%= group.name %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="field">
+      <input id="theDate" type="date" name="date" value="" />
+    </div>
+    <div class="field">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</center>

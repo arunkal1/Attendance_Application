@@ -14,23 +14,15 @@
       <li class="nav-item">
         <a class="nav-link" href="<%= students_path %>">Students</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Groups
-        </a>
-        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "All Groups", groups_path ,class:"dropdown_links"%>
-          <% $groups.each do |group| %>
-          <hr>
-          <%= link_to "#{group.name}", group ,class:"dropdown_links"%>
-          <% end %>
-        </div>
-      </li>
+      <span class="verticalLine"></span>
       <li class="nav-item">
         <a class="nav-link" href="<%= new_group_path %>">Add New Group</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<%= new_student_path %>">Add New Student</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= attendances_path %>">Add Attendance</a>
       </li>
     </ul>
   </div>
