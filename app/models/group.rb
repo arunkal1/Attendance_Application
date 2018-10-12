@@ -10,7 +10,7 @@ class Group < ApplicationRecord
   validates :stream, presence: { message: "Stream Must Be Given" }
   validates :startdate, presence: { message: "Start Date Must Be Given" }
   validates :enddate, presence: { message: "End Date Must Be Given" }
-  validates :enddate, presence: true, date: { after_or_equal_to: :startdate, message: "The End Date Given Must Be After The Start Date Given"}
+  validates :enddate, date: { after_or_equal_to: :startdate, message: "The End Date Given Must Be After The Start Date Given"}
 
  # ACTIVE_OPTION = active_option
 

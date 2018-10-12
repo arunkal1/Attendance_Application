@@ -54,10 +54,13 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
+    @attendance = Attendance.find params[:id]
+    @attendance.destroy
+    redirect_back fallback_location: root_path
   end
 
   def attendance_params
-    attendance_params = params.require(:attendance).permit(:att_status, :date, :student_id)
+    attendance_params = params.require(:attendance).permit(:att_status, :date, :comment, :student_id)
   end
   def group_params
     group_params = params.require(:group).permit(:name)

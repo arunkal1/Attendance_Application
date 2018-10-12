@@ -1,18 +1,34 @@
 <h1>Add New Attendances</h1>
 
+<script type="text/javascript">
+  var date = new Date();
+
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
+
+  if (month < 10) month = "0" + month;
+  if (day < 10) day = "0" + day;
+
+  var today = year + "-" + month + "-" + day;
+  $("#theDate").attr("value", today);
+</script>
+
 <center>
-  <form id="myForm" action="/attendances/new" method="get" class="att-form">
-    <div class="field">
+  <form id="myForm" action="/attendances/new" method="get" class="form att-form">
+    <div class="field att_field select">
       <select name="group">
         <% @groups.each do |group| %>
-        <option value="<%= group.id %>"><%= group.name %></option>
+        <% if group.active == true %>
+          <option value="<%= group.id %>"><%= group.name %></option>
+        <% end %>
         <% end %>
       </select>
     </div>
-    <div class="field">
+    <div class="field att_field nameInput">
       <input id="theDate" type="date" name="date" value="" />
     </div>
-    <div class="field">
+    <div class="action_button att_field">
       <button type="submit">Submit</button>
     </div>
   </form>
