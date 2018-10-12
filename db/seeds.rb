@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Group.create(name: 'Eng-01', stream: 'SDET', startdate: '01-07-2017', enddate: '01-10-2017', active: false)
+Group.create(name: 'Eng-01', stream: 'SDET', startdate: '27-08-2018', enddate: '26-10-2018', active: false)
 Group.create(name: 'Eng-07', stream: 'SDET', startdate: '10-10-2017', enddate: '10-02-2018', active: false)
 Group.create(name: 'Eng-09', stream: 'SDET', startdate: '23-04-2018', enddate: '12-08-2018', active: false)
 Group.create(name: 'Eng-11', stream: 'SDET', startdate: '24-08-2018', enddate: '12-11-2018', active: true)
