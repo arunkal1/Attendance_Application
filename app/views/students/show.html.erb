@@ -21,15 +21,15 @@
     <div class="col-md-6 show-containers">
       <table>
         <tr>
-          <td><h1>Name</h1></td>
+          <td><h1>Name: </h1></td>
           <td><h1><%= @student.name.titlecase %></h1></td>
         </tr>
         <tr>
-          <td><h1>Group</h1></td>
+          <td><h1>Group: </h1></td>
           <td><h1><%= link_to "#{@group.name.upcase}", @group, class: "badge badge-info" %></h1></td>
         </tr>
         <tr>
-          <td><h1>Stream</h1></td>
+          <td><h1>Stream: </h1></td>
           <td><h1><span class="badge badge-info"><%=@group.stream.upcase %></span></h1></td>
         </tr>
       </table>
@@ -134,7 +134,7 @@
     <% cellDate = week_date %>
 
     <!-- variable to track what the date is on each day. The date is initialised as the dtart date of the course-->
-    <% dateVar = @group.startdate %>
+    <% dateVar = week_date %>
     <!-- variable will be used to apply a border to the cell if the attendance date is the same as todays date -->
     <% dateSame = "" %>
     <!-- variable to add text to the cell -->
