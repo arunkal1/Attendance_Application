@@ -3,7 +3,7 @@ class Student < ApplicationRecord
   belongs_to :group
   has_many :attendances, :dependent => :delete_all
 
-  accepts_nested_attributes_for :attendances, allow_destroy: true
+accepts_nested_attributes_for :attendances, allow_destroy: true
 
 
  validates :name, presence: { message: "Must Be Given" }
