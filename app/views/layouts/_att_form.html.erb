@@ -37,6 +37,7 @@
       <% unless example.empty? %>
         <% exists = true %>
       <% end %>
+      <!-- only show students if they are active or they dont have an attendance for that date -->
       <% unless exists == true || student.active == false %>
         <% output = "#{student.id} - #{student.name}" %>
         <% student_list.push output %>
