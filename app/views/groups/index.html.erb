@@ -28,7 +28,7 @@
   <div class="container">
     <div class="row group_info" id = "group_info">
       <% @groups.each do |group| %>
-      <div class="col-4 card-group">
+      <div class="col-md-4 col-sm-6 card-group">
         <%= link_to group_path(group), class: "link_style" do %>
         <!-- This adds the classes active-group if the group is active and the class inactive is there inactive -->
         <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
@@ -53,7 +53,7 @@
   <div class="container">
     <div class="row">
       <% @groups1.each do |group| %>
-      <div class="col-4 card-group">
+      <div class="col-md-4 col-sm-6 card-group">
         <%= link_to group_path(group), class: "link_style" do %>
         <!-- This adds the classes active-group if the group is active and the class inactive is there inactive -->
         <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
@@ -78,7 +78,7 @@
   <div class="container">
     <div class="row">
       <% @groups2.each do |group| %>
-      <div class="col-4 card-group">
+      <div class="col-md-4 col-sm-6 card-group">
         <%= link_to group_path(group), class: "link_style" do %>
         <!-- This adds the classes active-group if the group is active and the class inactive is there inactive -->
         <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
