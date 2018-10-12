@@ -11,7 +11,7 @@ To clone the repository, [go to this link ](https://github.com/arunkal1/Attendan
 
 ![Git Page](app/assets/images/git_page.png)
 
-Click on the **Clone or Download** button to clone this repository ![Git Page](app/assets/images/clone.png). Then download as .ZIP file, after unzipping the file go to the Attendance Application folder in your text editor and run the following commands in your terminal:
+Click on the **Clone or Download** button to clone this repository ![Git Page](app/assets/images/cloneBtn.png). Then download as .ZIP file, after unzipping the file go to the Attendance Application folder in your text editor and run the following commands in your terminal:
 
 - Run Bundle command (bundle)
 - Populate Database (rails database)
