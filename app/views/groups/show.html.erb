@@ -1,3 +1,6 @@
+<!-- Prints the notice to indicate a new group has been made
+Styles with CSS and Bootstrap
+Checks if any notices are already on the page, if not then it will appear -->
 <div class="alert-success" role="alert">
   <% if notice.to_s.length != 0 %>
     <p class="alert notice"><%= notice %></p>
@@ -14,7 +17,7 @@
 </script>
 
 <div class="container">
-
+<!-- Displays the groups name, start and end date, whether they are active and their stream -->
   <div class="row">
     <div class="col-md-12 group-container attend_group">
       <center>
@@ -26,11 +29,13 @@
         <li>Stream: <%= @group.stream %></li>
       </ul>
 
+<!-- Buttons to edit and delete that particular group -->
       <%= link_to "Edit Group", edit_group_path, class: "btn btn-primary"%>
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmModal">
         Delete Group
       </button>
 
+<!-- Model appears displaying a message to confirm if the group to be deleted -->
       <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -43,6 +48,7 @@
             <div class="modal-body">
               <b>This will also delete all the students in the group</b>
             </div>
+            <!-- If user clicks confirm then it will delete all from the database -->
             <div class="modal-footer">
               <%= link_to 'Delete Group', @group, method: :delete, class: "btn btn-danger"%>
               <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
