@@ -29,8 +29,8 @@ $(document).ready(function() {
 
   var today = year + "-" + month + "-" + day;
   $("#theDate").attr("value", today);
-});
 
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+});
