@@ -1,6 +1,6 @@
 <h1>Groups</h1>
 
-
+<!-- Button's for sorting results -->
 <div class="container">
   <div class="row">
     <div class="buttons-sort">
@@ -10,6 +10,7 @@
     </div>
   </div>
   <div class="row">
+    <!-- This key shows blocks red and green -->
     <div class="buttons-sort">
       <p class="key"> Inactive</p>
       <%= image_tag("square_block_red.jpg", size: "20x20", alt: "Edit Entry", class: "key") %>
@@ -20,20 +21,22 @@
   </div>
 </div>
 
-
+<!-- Below is the cards- A new card is generated for each new group -->
+<!-- Bootstrap container, row and col -->
+<!-- Listed below is the name, stream, start and end date -->
 <div class="" id="order_id">
   <div class="container">
-    <div class="row group_info">
+    <div class="row group_info" id = "group_info">
       <% @groups.each do |group| %>
       <div class="col-4 card-group">
         <%= link_to group_path(group), class: "link_style" do %>
+        <!-- This adds the classes active-group if the group is active and the class inactive is there inactive -->
         <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
           <h2><%= group.name %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
             <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
             <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
-            <!-- <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li> -->
           </ul>
         </div>
         <% end %>
@@ -43,19 +46,22 @@
   </div>
 </div>
 
+<!-- Below is the cards- A new card is generated for each new group -->
+<!-- Bootstrap container, row and col -->
+<!-- Listed below is the name, stream, start and end date -->
 <div class="" id="order_name">
   <div class="container">
     <div class="row">
       <% @groups1.each do |group| %>
       <div class="col-4 card-group">
         <%= link_to group_path(group), class: "link_style" do %>
+        <!-- This adds the classes active-group if the group is active and the class inactive is there inactive -->
         <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
           <h2><%= group.name %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
             <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
             <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
-            <!-- <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li> -->
           </ul>
         </div>
         <% end %>
@@ -65,19 +71,22 @@
   </div>
 </div>
 
+<!-- Below is the cards- A new card is generated for each new group -->
+<!-- Bootstrap container, row and col -->
+<!-- Listed below is the name, stream, start and end date -->
 <div class="" id="order_active">
   <div class="container">
     <div class="row">
       <% @groups2.each do |group| %>
       <div class="col-4 card-group">
         <%= link_to group_path(group), class: "link_style" do %>
+        <!-- This adds the classes active-group if the group is active and the class inactive is there inactive -->
         <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
           <h2><%= group.name %></h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
             <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
             <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
-            <!-- <li class="list-group-item group-card-info">Active: <%= (group.active).to_s.capitalize %></li> -->
           </ul>
         </div>
         <% end %>
@@ -87,11 +96,13 @@
   </div>
 </div>
 
+<!-- Button for creating a new group -->
 <div class="btn-new">
   <%= link_to "Add a Group", new_group_path, class: "btn btn-secondary new_group_button" %>
 </div>
 
 <script type="text/javascript">
+
   $("#order_id").show()
   $("#order_name").hide();
   $("#order_active").hide();
@@ -100,8 +111,9 @@
     $("#order_name").show();
     $("#order_id").hide();
     $("#order_active").hide();
+
+
     // $("#sort_name").css({"background-color":"black", "color":"white"})
-    // $("#group_info").load(location.href+" #group_info>*","");
   });
 
   document.getElementById("sort_id").addEventListener("click", function(){
@@ -111,6 +123,7 @@
 
     // $("#group_info").load(location.href+" #group_info>*","");
   });
+
   document.getElementById("sort_active").addEventListener("click", function(){
     $("#order_name").hide();
     $("#order_id").hide();
@@ -119,7 +132,6 @@
   });
 
   setInterval(function () {
-
     if ($("#order_name").is(":visible")) {
       $("#sort_name").css({"background-color":"black", "color":"white"})
     } else {
@@ -135,7 +147,6 @@
     } else {
       $("#sort_id").css({"background-color":"#6c757d", "color":"white"})
     }
-
   }, 10);
 
 </script>

@@ -16,17 +16,21 @@
 //= require_tree .
 
 $(document).ready(function() {
-    console.log("page ready")
+  console.log("page ready")
 
-    var date = new Date();
+  var date = new Date();
 
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
 
-    if (month < 10) month = "0" + month;
-    if (day < 10) day = "0" + day;
+  if (month < 10) month = "0" + month;
+  if (day < 10) day = "0" + day;
 
-    var today = year + "-" + month + "-" + day;
-    $("#theDate").attr("value", today);
+  var today = year + "-" + month + "-" + day;
+  $("#theDate").attr("value", today);
 });
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})

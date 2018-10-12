@@ -36,7 +36,7 @@ class GroupsController < ApplicationController
     @group.capitalize_name
     respond_to do |format|
       if @group.update group_params
-        format.html{redirect_to @group, notice: "#{@group.name} was created"}
+        format.html{redirect_to @group, notice: "#{@group.name} was updated"}
       else
         format.html{render :new}
       end
