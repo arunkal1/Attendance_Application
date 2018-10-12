@@ -134,3 +134,10 @@ h1 {
 .att-form {
   padding-top: 50px;
 }
+
+.cocktailShakerBin img {
+  width: 20px;
+  height: 20px;
+  display: none;
+  float: right;
+}

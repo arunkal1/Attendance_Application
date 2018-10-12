@@ -77,3 +77,9 @@
     font-size: 25px;
   }
 }
+
+.hoverBin:hover {
+  .cocktailShakerBin img{
+    display: inline;
+  }
+}
