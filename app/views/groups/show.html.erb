@@ -91,11 +91,16 @@
           %>
           <td><b><%= student.id %></b></td>
           <td><%= link_to "#{student.name.titlecase}", student %></td>
-          <td><%= percArray[0] %>%</td>
-          <td><%= percArray[1] %>%</td>
-          <td><%= percArray[2] %>%</td>
-          <td><%= percArray[3] %>%</td>
-          <td><%= percArray[4] %>%</td>
+
+          <% percArray.each do |p| %>
+
+            <% if p.nan? %>
+              <td>0.0%</td>
+            <% else %>
+              <td><%= p %>%</td>
+            <% end %>
+
+          <% end %>
 
         </tr>
         <% end %>

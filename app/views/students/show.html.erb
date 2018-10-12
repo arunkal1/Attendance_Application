@@ -79,19 +79,24 @@
           sum+=value
         end
 
-        percArray[0] = ((att_array[0] / sum) * 100).round 2
-        percArray[1] = ((att_array[1] / sum) * 100).round 2
-        percArray[2] = ((att_array[2] / sum) * 100).round 2
-        percArray[3] = ((att_array[3] / sum) * 100).round 2
-        percArray[4] = ((att_array[4] / sum) * 100).round 2
+
+          percArray[0] = ((att_array[0] / sum) * 100).round 2
+          percArray[1] = ((att_array[1] / sum) * 100).round 2
+          percArray[2] = ((att_array[2] / sum) * 100).round 2
+          percArray[3] = ((att_array[3] / sum) * 100).round 2
+          percArray[4] = ((att_array[4] / sum) * 100).round 2
 
         %>
 
-        <td><%= percArray[0] %>%</td>
-        <td><%= percArray[1] %>%</td>
-        <td><%= percArray[2] %>%</td>
-        <td><%= percArray[3] %>%</td>
-        <td><%= percArray[4] %>%</td>
+        <% percArray.each do |p| %>
+
+          <% if p.nan? %>
+            <td>0.0%</td>
+          <% else %>
+            <td><%= p %>%</td>
+          <% end %>
+
+        <% end %>
 
       </tr>
     </tbody>
