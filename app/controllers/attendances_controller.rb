@@ -33,7 +33,7 @@ class AttendancesController < ApplicationController
       if @attendance.save
         format.html{redirect_back fallback_location: root_path}
       else
-        format.html{redirect_back fallback_location: root_path}
+        format.html{redirect_back fallback_location: root_path, notice: "Attendance status must be given"}
       end
     end
   end
@@ -50,7 +50,7 @@ class AttendancesController < ApplicationController
   def attendance_params
     attendance_params = params.require(:attendance).permit(:att_status, :date, :comment, :student_id)
   end
-  
+
   def group_params
     group_params = params.require(:group).permit(:name)
   end
